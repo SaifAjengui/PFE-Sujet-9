@@ -21,8 +21,7 @@
         		<smartFilterBar:controlConfiguration>
         			<smartFilterBar:ControlConfiguration  id="_IDGenControlConfiguration1"
         				key="Bukrs" visibleInAdvancedArea="true" 
-        				preventInitialDataFetchInValueHelpDialog="true"
-						>
+        				preventInitialDataFetchInValueHelpDialog="true">
 						
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2"

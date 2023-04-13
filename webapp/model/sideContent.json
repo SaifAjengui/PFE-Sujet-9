@@ -1,0 +1,23 @@
+{
+	"selectedKey": "",
+
+	"navigation": [{
+		"titleI18nKey": "sideContentHome",
+		"icon": "sap-icon://home",
+		"expanded": true,
+		"key": "",
+		"items": []
+	}, {
+		"titleI18nKey": "sideContentConsultation",
+		"icon": "sap-icon://order-status",
+		"expanded": false,
+		"key": "consultation",
+		"items": []
+	}, {
+		"titleI18nKey": "sideContentModifications",
+		"icon": "sap-icon://line-chart",
+		"expanded": true,
+		"key": "modification",
+		"items": []
+	}]
+}

@@ -1,0 +1,156 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "aymax.pfe.inventaire",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.9.1",
+      "toolsId": "27229005-e57d-4c1d-a777-d8e16507cf6c"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZINVENTAIRE_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.111.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "aymax.pfe.inventaire.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "useBatch": false
+         }
+      },
+      "listeModel": {
+        "type": "sap.ui.model.json.JSONModel",
+      "settings": {}
+       },
+      "side": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/sideContent.json"
+    },
+     "alerts": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/alerts.json"
+    },
+    "customer": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/customers.json"
+    }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "aymax.pfe.inventaire.view",
+        "controlAggregation": "pages",
+        "controlId": "mainContents",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "home",
+          "target": "home"
+      },
+      {
+          "pattern": "consultation",
+          "name": "consultation",
+          "target": "consultation"
+      },
+      {
+          "pattern": "modification",
+          "name": "modification",
+          "target": "modification"
+      }
+      
+
+      ],
+      "targets": {
+       
+        "home": {
+          "viewId": "home",
+          "viewName": "Home"
+        },
+        "consultation": {
+          "viewId": "consultation",
+          "viewName": "Consultation"
+        },
+        "modification": {
+          "viewId": "modification",
+          "viewName": "Modification"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "aymax.pfe.inventaire.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
+

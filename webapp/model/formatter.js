@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/base/strings/formatMessage"
-], function (formatMessage) {
+	"sap/base/strings/formatMessage",
+	"sap/ui/thirdparty/jquery"
+], function (formatMessage,jQuery) {
 	"use strict";
 
 	return {
@@ -18,7 +19,12 @@ sap.ui.define([
 			if (bIsPhone) {
 				sImagePath += "_small";
 			}
-			return sImagePath + ".png";
+			var sRootPath = jQuery.sap.getModulePath("aymax.pfe.inventaire");
+			////// var sRootPath = sap.ui.require.toUrl("the.namespace");  // available since 1.58
+ 			//var sImagePath = sRootPath + "/images/.png";
+			return sRootPath + sImagePath + ".png";
 		}
+
+		
 	};
 });

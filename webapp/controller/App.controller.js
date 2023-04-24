@@ -69,6 +69,14 @@ sap.ui.define([
 				// desktop to tablet screen sizes)
 				this._bExpanded = (oDevice.name === "Desktop");
 			}
+		},
+
+
+		onSelectSideNav:function(oEvent){
+		var sRoute = oEvent.getSource().getKey();
+		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo(sRoute);
+			
 		}
 	
 

@@ -8,7 +8,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	 xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartVariantManagement="sap.ui.comp.smartvariants">
-	<Page id="_IDGenPage2" showHeader="false">
+	<Page id="_IDGenPage3" showHeader="false">
 		
 	
 		<content>
@@ -17,18 +17,48 @@
 			liveMode="true"
         		id="smartFilterBar"
         		entityType="Immobilisation" 
-        		persistencyKey="SmartFilterPKey">
+        		persistencyKey="SmartFilterPKey"
+				
+				>
         		<smartFilterBar:controlConfiguration>
         			<smartFilterBar:ControlConfiguration  id="_IDGenControlConfiguration1"
-        				key="Bukrs" visibleInAdvancedArea="true" 
-        				preventInitialDataFetchInValueHelpDialog="true">
+        				key="Bukrs" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2"
         				key="Anln1" visibleInAdvancedArea="true" filterType="interval"
         				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration3"
-        				key="Anln2" visibleInAdvancedArea="true"
+        				key="Anln2" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration4"
+        				key="Anlkl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration5"
+        				key="Lifnr" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration6"
+        				key="Land1" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration7"
+        				key="Aktiv" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration8"
+        				key="Kostl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration9"
+        				key="Gsber" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration10"
+        				key="Ndjar" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
         				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
         		</smartFilterBar:controlConfiguration>
@@ -46,7 +76,8 @@
 				showRowCount="true"
 				useExportToExcel="true" 
 				showFullScreenButton="true"
-				enableAutoBinding="false">
+				enableAutoBinding="false"
+				>
 			</smartTable:SmartTable>
 
 		</content>	

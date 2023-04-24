@@ -9,20 +9,22 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {},
+  "dependencies": {
+    "nwabap-ui5uploader": "^1.2.0"
+  },
   "devDependencies": {
-    "@ui5/cli": "^2.14.1",
-    "@sap/ux-ui5-tooling": "1",
-    "eslint": "7.32.0",
+    "@sap-ux/ui5-middleware-fe-mockserver": "2",
     "@sap/eslint-plugin-ui5-jsdocs": "2.0.5",
+    "@sap/ux-ui5-tooling": "1",
     "@sapui5/ts-types": "~1.108.0",
-    "@sap-ux/ui5-middleware-fe-mockserver": "2"
+    "@ui5/cli": "^2.14.1",
+    "eslint": "7.32.0"
   },
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#aymaxpfeinventaire-display\"",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#aymaxpfeinventaire-display\"",
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
-    "deploy": "fiori verify",
+    "deploy": "npm run build && npx nwabap upload",
     "deploy-config": "fiori add deploy-config",
     "start-noflp": "fiori run --open \"index.html?sap-client=200&sap-ui-xx-viewCache=false\"",
     "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flpSandbox.html?sap-client=200&sap-ui-xx-viewCache=false#aymaxpfeinventaire-display\"",

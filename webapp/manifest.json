@@ -55,7 +55,8 @@
         "sap.ui.comp": {},
         "sap.ui.generic.app": {},
         "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.ushell": {},
+        "sap.tnt":{}
       }
     },
     "contentDensities": {
@@ -115,17 +116,22 @@
           "pattern": "",
           "name": "home",
           "target": "home"
-      },
-      {
+        },
+        {
           "pattern": "consultation",
           "name": "consultation",
           "target": "consultation"
-      },
-      {
+        },
+        {
           "pattern": "modification",
           "name": "modification",
           "target": "modification"
-      }
+        },
+        {
+          "pattern": "settings",
+          "name": "settings",
+          "target": "settings"
+        }
       
 
       ],
@@ -142,6 +148,10 @@
         "modification": {
           "viewId": "modification",
           "viewName": "Modification"
+        },
+        "settings": {
+          "viewId": "settings",
+          "viewName": "Settings"
         }
       }
     },

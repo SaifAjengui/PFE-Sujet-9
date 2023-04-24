@@ -17,8 +17,8 @@
 			<tnt:SideNavigation id="_IDGenSideNavigation1" expanded="true" selectedKey="{side>/selectedKey}">
 				<tnt:NavigationList id="_IDGenNavigationList1" items="{ path: 'side>/navigation', templateShareable: false }">
 					<tnt:NavigationListItem id="_IDGenNavigationListItem1" text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}" icon="{side>icon}" expanded="{side>expanded}"
-						items="{ path: 'side>items', templateShareable: false }" key="{side>key}" href="#/{side>key}">
-						<tnt:NavigationListItem id="_IDGenNavigationListItem2"  text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}" key="{side>key}" href="#/{side>key}"></tnt:NavigationListItem>
+						items="{ path: 'side>items', templateShareable: false }" key="{side>key}" select="onSelectSideNav">
+						<tnt:NavigationListItem id="_IDGenNavigationListItem2"  text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}" key="{side>key}" select="onSelectSideNav"></tnt:NavigationListItem>
 					</tnt:NavigationListItem>
 				</tnt:NavigationList>
 			</tnt:SideNavigation>

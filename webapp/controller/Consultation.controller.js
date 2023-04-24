@@ -4,8 +4,9 @@ sap.ui.define([
 	'sap/ui/Device',
 	"sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+	"sap/m/MessageBox",
 
-], function (BaseController, JSONModel, Device, Filter, FilterOperator,) {
+], function (BaseController, JSONModel, Device, Filter, FilterOperator,MessageBox) {
 	"use strict";
 	return BaseController.extend("aymax.pfe.inventaire.controller.Consultation", {
 		
@@ -13,13 +14,13 @@ sap.ui.define([
 		onInit: function () {
 		
 		
-		
 		},
 
 		onPress: function () {
-			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("detailconsultation");
+		
 		},
+
+		
 			
 	});
 });

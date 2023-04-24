@@ -1,0 +1,6 @@
+<mvc:View controllerName="aymax.pfe.inventaire.controller.Settings" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="_IDGenPage4" showHeader="false">
+
+	</Page>
+</mvc:View>

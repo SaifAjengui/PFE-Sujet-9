@@ -5,7 +5,7 @@
 		"titleI18nKey": "sideContentHome",
 		"icon": "sap-icon://home",
 		"expanded": true,
-		"key": "",
+		"key": "home",
 		"items": []
 	}, {
 		"titleI18nKey": "sideContentConsultation",

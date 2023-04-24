@@ -8,7 +8,7 @@
                     <PropertyRef Name="Anln1"/>
                     <PropertyRef Name="Anln2"/>
                 </Key>
-                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"  sap:required-in-filter="true"/>
                 <Property Name="Anln1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="Anln2" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sub-number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="Anlkl" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Asset Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -32,6 +32,19 @@
             <EntityContainer Name="ZINVENTAIRE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ImmobilisationSet" EntityType="ZINVENTAIRE_SRV.Immobilisation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
             </EntityContainer>
+
+	  <Annotation Term="Org.OData.Capabilities.V1.FilterRestrictions">
+     <Record>
+         <PropertyValue Property="RequiresFilter" Bool="true"/>
+         <PropertyValue Property="RequiredProperties">
+          <Collection>
+          	<PropertyPath>Bukrs</PropertyPath>
+            
+          </Collection>
+       </PropertyValue>
+     </Record>
+   </Annotation>
+
             <atom:link rel="self" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
             <atom:link rel="latest-version" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
         </Schema>

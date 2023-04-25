@@ -5,13 +5,97 @@
  xmlns:t="sap.ui.table"
  	xmlns:u="sap.ui.unified"
 		xmlns:c="sap.ui.core"
+		 xmlns:custumData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:mvc="sap.ui.core.mvc"
 	 xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartVariantManagement="sap.ui.comp.smartvariants">
 	<Page id="_IDGenPage2" showHeader="false">
 		
 
-		
+		<content>
+						
+ 			<smartFilterBar:SmartFilterBar 
+			liveMode="true"
+        		id="smartFilterBar"
+        		entityType="Immobilisation" 
+        		persistencyKey="SmartFilterPKey"
+				
+				>
+        		<smartFilterBar:controlConfiguration>
+        			<smartFilterBar:ControlConfiguration  id="_IDGenControlConfiguration1"
+        				key="Bukrs" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2"
+        				key="Anln1" visibleInAdvancedArea="true" filterType="interval"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration3"
+        				key="Anln2" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration4"
+        				key="Anlkl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration5"
+        				key="Lifnr" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration6"
+        				key="Land1" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration7"
+        				key="Aktiv" visibleInAdvancedArea="true" filterType="interval"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration8"
+        				key="Kostl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration9"
+        				key="Gsber" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration10"
+        				key="Ndjar" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+        		</smartFilterBar:controlConfiguration>
+        	</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable 
+				id="smartTable_ResponsiveTable1"
+				showFullScreenButton="true"
+				entitySet="ImmobilisationSet"
+				tableType="Table" 
+				useExportToExcel="true" 
+				useVariantManagement="false"
+				useTablePersonalisation="true" 
+				smartFilterId="smartFilterBar" 
+				header="Immobilisations"
+				persistencyKey="MNA_Persist_Key"
+				enableAutoBinding="true"
+				editTogglable="true"
+				editable="true"
+				demandPopin="false"
+				class="sapUiResponsiveContentPadding sapUiSizeCompact"
+				custumData:useSmartToggle="true"
+				tableBindingPath=""
+				initialise="onInitialise"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber">
+				<smartTable:customToolbar>
+				<OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
+				<ToolbarSpacer id="_IDGenToolbarSpacer1" />
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" icon="sap-icon://save" press="" tooltip="save"/>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton3" icon="sap-icon://delete" press="" tooltip="Delete" />
+				</OverflowToolbar>
+				</smartTable:customToolbar>
+
+			</smartTable:SmartTable>
+
+		</content>	
 	</Page>
+	
 </mvc:View>
 

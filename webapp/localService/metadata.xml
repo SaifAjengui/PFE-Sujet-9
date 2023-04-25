@@ -1,52 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
-    <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="ZINVENTAIRE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <EntityType Name="Immobilisation" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Bukrs"/>
-                    <PropertyRef Name="Anln1"/>
-                    <PropertyRef Name="Anln2"/>
-                </Key>
-                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"  sap:required-in-filter="true"/>
-                <Property Name="Anln1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Asset" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Anln2" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sub-number" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Anlkl" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Asset Class" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Txt50" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Vendor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Ctry of Origin" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Urwrt" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Original Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Aktiv" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Capitalized On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Business Area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Afasl" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Dep. key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Ndjar" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Useful Life" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Ndper" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Periods" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Peraf" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Deprec. Period" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Knafa" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Accm.Ord.Deprec" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Aafav" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Unplanned Dep." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Sansl" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Statist. acquis.val." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityContainer Name="ZINVENTAIRE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="ImmobilisationSet" EntityType="ZINVENTAIRE_SRV.Immobilisation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-            </EntityContainer>
-
-	  <Annotation Term="Org.OData.Capabilities.V1.FilterRestrictions">
-     <Record>
-         <PropertyValue Property="RequiresFilter" Bool="true"/>
-         <PropertyValue Property="RequiredProperties">
-          <Collection>
-          	<PropertyPath>Bukrs</PropertyPath>
-            
-          </Collection>
-       </PropertyValue>
-     </Record>
-   </Annotation>
-
-            <atom:link rel="self" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-        </Schema>
-    </edmx:DataServices>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZINVENTAIRE_SRV" xml:lang="fr" sap:schema-version="1">
+<EntityType Name="Immobilisation" sap:content-version="1">
+<Key>
+<PropertyRef Name="Bukrs"/>
+<PropertyRef Name="Anln1"/>
+<PropertyRef Name="Anln2"/>
+</Key>
+<Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:filter-restriction="single-value" sap:required-in-filter="true" sap:unicode="false" sap:label="Société" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Anln1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Immobilisation" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Anln2" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Nº subsidiaire" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Anlkl" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Catégorie immo." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Txt50" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Désignation" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Quantité" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Fournisseur" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Pays d'origine" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Urwrt" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Valeur d'orig." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Aktiv" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date mise serv." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Centre de coûts" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="UQ base" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="unit-of-measure"/>
+<Property Name="Werks" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Gsber" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Dom.activité" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Afasl" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Code d'amort." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Ndjar" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Durée d'utilis." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Ndper" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Périodes" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Peraf" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Période amort." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Knafa" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Amo. dépr. cum." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Aafav" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Amo non planif." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Sansl" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+</EntityType>
+<EntityContainer Name="ZINVENTAIRE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="ImmobilisationSet" EntityType="ZINVENTAIRE_SRV.Immobilisation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:requires-filter="true" sap:content-version="1"/>
+</EntityContainer>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://adedev.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata"/>
+</Schema>
+</edmx:DataServices>
 </edmx:Edmx>

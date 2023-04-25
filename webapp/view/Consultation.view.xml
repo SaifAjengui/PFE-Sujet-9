@@ -46,7 +46,7 @@
         				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration7"
-        				key="Aktiv" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				key="Aktiv" visibleInAdvancedArea="true" filterType="interval"
         				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration8"

@@ -9,7 +9,7 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
-			console.log("test");
+			console.log("testttt");
 		},
 
 		

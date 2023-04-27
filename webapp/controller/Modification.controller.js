@@ -14,7 +14,8 @@ sap.ui.define([
 		
 
 		onInit: function() {
-			var oModel = this.getView().getModel();
+			
+			var oModel = this.getOwnerComponent().getModel();
 			var sSet = "/" + "ImmobilisationSet";
 			oModel.read(sSet, {
 				success: function (oData) {
@@ -26,10 +27,12 @@ sap.ui.define([
 					sap.m.MessageToast.show("oData fetching failed");
 				}
 			});
+			//console.log(oModel);
+
+			
 		},
 
 		onInitialise: function (oEvent) {
-
 			var oTable = oEvent.getSource().getTable();
 			var aColumns = oTable.getColumns();
 
@@ -40,8 +43,48 @@ sap.ui.define([
 			}
 
 			oTable.bindRows("oModelMNA>/");
+			
 		},
 		
+
+	MultiEdit: function(oEvent) {
+		
+		var oModel = this.getOwnerComponent().getModel();
+	
+		var items =  this.getView().byId('smartTable_ResponsiveTable1').getTable().getSelectedIndices();
+		var row;  
+		var itemObject;   
+		var context; 
+		for(var i = 0; i < items.length; i++){  
+			row = items[i];  
+			context  = {
+				Bukrs: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Bukrs'),
+				Anln1: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln1'),
+				Anln2: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln2'),
+				Anlkl: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anlkl'),
+				Txt50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txt50')
+
+			};
+
+			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='000000"+context.Anln1 +"'"+','+"Anln2='000"+context.Anln2 +"'"+ ")", context, {
+				success: function(data, response){
+					sap.m.MessageToast.show("Success"), {
+						 duration: 3000
+					 };
+				}.bind(this),
+				error: function(error){
+					
+				}.bind(this)
+			});
+
+		}  
+
+		  var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("consultation");
+		
+	
+		
+	},
 		
 	});
 });

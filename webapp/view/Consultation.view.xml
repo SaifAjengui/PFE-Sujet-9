@@ -78,7 +78,7 @@
 				showFullScreenButton="true"
 				enableAutoBinding="false"
 				>
-				<Table>
+				<Table id="_IDGenTable1">
 				<columns>
          			<Column id="container-aymax.pfe.inventaire---consultation--smartTable_ResponsiveTable-Anln1">
               			<customData>
@@ -88,8 +88,8 @@
             		</Column>	
     			</columns>	
 				<items>
-          		   <ColumnListItem>
-	    				<ObjectIdentifier
+          		   <ColumnListItem id="_IDGenColumnListItem1">
+	    				<ObjectIdentifier id="_IDGenObjectIdentifier1"
 							text="{path: 'Anln1' , formatter: '.formatter.Anln1Format'}"
 							textDirection="Inherit"
 							titleActive="false"

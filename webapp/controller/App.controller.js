@@ -26,6 +26,21 @@ sap.ui.define([
 
 			Device.media.attachHandler(this._handleWindowResize, this);
 			this.getRouter().attachRouteMatched(this.onRouteChange.bind(this));
+
+
+			/*var oOdataV2Model = this.getOwnerComponent().getModel();
+
+			oOdataV2Model.setDeferredGroups(["ImmobilisationSet"]);
+
+			oOdataV2Model.setChangeGroups({
+			"Immobilisation": {
+			groupId: "ImmobilisationSet"
+			}
+			});
+
+			oOdataV2Model.setRefreshAfterChange(true);*/
+
+
 		},
 
 	

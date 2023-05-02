@@ -6,9 +6,11 @@ sap.ui.define([
 	"sap/ui/model/resource/ResourceModel",
 	"sap/ui/core/syncStyleClass",
 	"sap/ui/core/Fragment",
-	"sap/ui/model/json/JSONModel"
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
 	
-], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel) {
+], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator) {
 	"use strict";
 	return BaseController.extend("aymax.pfe.inventaire.controller.Modification", {
 		
@@ -45,6 +47,54 @@ sap.ui.define([
 			oTable.bindRows("oModelMNA>/");
 			
 		},
+
+	/*	MultiEdit2: function(oEvent) {
+
+
+			var oModel = this.getOwnerComponent().getModel();
+				
+			var items =  this.getView().byId('smartTable_ResponsiveTable1').getTable().getSelectedIndices();
+			var row;  
+			var itemObject;   
+			var context; 
+			for(var i = 0; i < items.length; i++){  
+				row = items[i];  
+				context  = {
+					Bukrs: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Bukrs'),
+					Anln1: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln1'),
+					Anln2: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln2'),
+					Anlkl: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anlkl'),
+					Txt50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txt50')
+
+				};
+
+				oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='000000"+context.Anln1 +"'"+','+"Anln2='000"+context.Anln2 +"'"+ ")", context, {
+					groupId : "ImmobilisationSet",
+					success: function(data, response){
+
+						sap.m.MessageToast.show("Success"), {
+							duration: 3000
+						};
+					}.bind(this),
+					error: function(error){
+						
+					}.bind(this)
+				});
+
+			}  
+			oModel.submitChanges({
+				groupId : "ImmobilisationSet",
+
+				success: function(){
+
+					sap.m.MessageToast.show("Success"), {
+						duration: 3000
+					};
+					}
+				});
+					},
+*/
+
 		
 
 	MultiEdit: function(oEvent) {
@@ -61,8 +111,15 @@ sap.ui.define([
 				Bukrs: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Bukrs'),
 				Anln1: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln1'),
 				Anln2: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln2'),
-				Anlkl: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anlkl'),
-				Txt50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txt50')
+				
+				Txt50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txt50'),
+				Menge: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Menge'),
+				Lifnr: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Lifnr'),
+				Aktiv: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Aktiv'),
+				Urwrt: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Urwrt'),
+				Kostl: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Kostl'),
+				Werks: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Werks'),
+				Gsber: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Gsber'),
 
 			};
 
@@ -85,6 +142,20 @@ sap.ui.define([
 	
 		
 	},
+	onFilter : function (oEvent) {
+		// build filter array
+		var aFilter = [], sQuery = this.byId("searchInput").getProperty("value"),
+		// retrieve list control
+		oList = this.getView().byId("smartTable_ResponsiveTable1"),
+		// get binding for aggregation 'items'
+		oBinding = oList.getTable().getBinding("items");
+		if (sQuery) {
+		aFilter.push(new Filter("Anln1", FilterOperator.Contains, sQuery));
+		}
+		// apply filter. an empty filter array simply removes the filter
+		// which will make all entries visible again
+		oBinding.filter(aFilter);
+		},
 		
 	});
 });

@@ -78,6 +78,27 @@
 				showFullScreenButton="true"
 				enableAutoBinding="false"
 				>
+				<Table>
+				<columns>
+         			<Column id="container-aymax.pfe.inventaire---consultation--smartTable_ResponsiveTable-Anln1">
+              			<customData>
+	       			  		<core:CustomData key="p13nData" value='\{"columnKey": "Anln1", "leadingProperty": "Anln1", "columnIndex": 1}'/>
+						</customData>
+              				<Text id="container-aymax.pfe.inventaire---consultation--smartTable_ResponsiveTable-Anln1-header" text="{i18n>Immobilisation}"></Text>
+            		</Column>	
+    			</columns>	
+				<items>
+          		   <ColumnListItem>
+	    				<ObjectIdentifier
+							text="{path: 'Anln1' , formatter: '.formatter.Anln1Format'}"
+							textDirection="Inherit"
+							titleActive="false"
+							visible="true"
+						>
+						</ObjectIdentifier>
+					</ColumnListItem>
+			    </items>
+				</Table>
 			</smartTable:SmartTable>
 
 		</content>	

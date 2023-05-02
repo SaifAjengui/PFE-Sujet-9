@@ -23,8 +23,10 @@ sap.ui.define([
 			////// var sRootPath = sap.ui.require.toUrl("the.namespace");  // available since 1.58
  			//var sImagePath = sRootPath + "/images/.png";
 			return sRootPath + sImagePath + ".png";
+		},
+		Anln1Format : function (Anln1){
+			var value = "0".repeat(12-Anln1.length) + Anln1.toString();
+			return value;
 		}
-
-		
 	};
 });

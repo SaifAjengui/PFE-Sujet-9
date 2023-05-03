@@ -105,6 +105,8 @@ sap.ui.define([
 		var row;  
 		var itemObject;   
 		var context; 
+		var Anln1;
+		var Anln2;
 		for(var i = 0; i < items.length; i++){  
 			row = items[i];  
 			context  = {
@@ -122,8 +124,9 @@ sap.ui.define([
 				Gsber: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Gsber'),
 
 			};
-
-			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='000000"+context.Anln1 +"'"+','+"Anln2='000"+context.Anln2 +"'"+ ")", context, {
+			Anln1 = "0".repeat(12-context.Anln1.length) + context.Anln1;
+			Anln2 = "0".repeat(4-context.Anln2.length) + context.Anln2;
+			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+Anln1 +"'"+','+"Anln2='"+Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000

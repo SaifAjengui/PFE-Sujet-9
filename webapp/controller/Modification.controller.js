@@ -9,12 +9,12 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+	'aymax/pfe/inventaire/model/formatter',
 	
-], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator) {
+], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator, formatter) {
 	"use strict";
 	return BaseController.extend("aymax.pfe.inventaire.controller.Modification", {
-		
-
+		formatter: formatter,
 		onInit: function() {
 			
 			var oModel = this.getOwnerComponent().getModel();
@@ -46,6 +46,11 @@ sap.ui.define([
 
 			oTable.bindRows("oModelMNA>/");
 			
+		},
+
+		onPress: function(oEvent) {
+			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("modificationExcel");
 		},
 
 	/*	MultiEdit2: function(oEvent) {
@@ -124,8 +129,12 @@ sap.ui.define([
 				Gsber: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Gsber'),
 
 			};
+			if (context.Aktiv){
+				context.Aktiv=formatter.DateFormat(context.Aktiv);
+			}
 			Anln1 = "0".repeat(12-context.Anln1.length) + context.Anln1;
 			Anln2 = "0".repeat(4-context.Anln2.length) + context.Anln2;
+			
 			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+Anln1 +"'"+','+"Anln2='"+Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
@@ -158,7 +167,10 @@ sap.ui.define([
 		// apply filter. an empty filter array simply removes the filter
 		// which will make all entries visible again
 		oBinding.filter(aFilter);
-		},
+	},
+	
+
+	
 		
 	});
 });

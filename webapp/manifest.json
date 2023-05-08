@@ -131,6 +131,11 @@
           "pattern": "settings",
           "name": "settings",
           "target": "settings"
+        },
+        {
+          "pattern": "modificationExcel",
+          "name": "modificationExcel",
+          "target": "modificationExcel"
         }
       
 
@@ -148,6 +153,10 @@
         "modification": {
           "viewId": "modification",
           "viewName": "Modification"
+        },
+        "modificationExcel": {
+          "viewId": "modificationExcel",
+          "viewName": "ModificationExcel"
         },
         "settings": {
           "viewId": "settings",

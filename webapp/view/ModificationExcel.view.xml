@@ -1,0 +1,91 @@
+<mvc:View
+	controllerName="aymax.pfe.inventaire.controller.ModificationExcel"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+    xmlns:u="sap.ui.unified"
+>
+
+				<Page id="page" title="Read From Excel">
+					<customHeader>
+						<Bar id="_IDGenBar1">
+                            <contentRight>
+                                <Button id="button_save_loaded_data" text="Save loaded data"
+                                icon=""
+						press="uploadExcel"
+						ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+					<layoutData>
+						<FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+					</layoutData>
+				</Button>
+                            </contentRight>
+							<contentMiddle>
+								<Label id="_IDGenLabel1" text="Read Data From Excel"/>
+							</contentMiddle>
+							<contentRight>
+								<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Table id="Excel_data_table" items="{localModel>/items}">
+							<columns>
+								<Column id="_IDGenColumn1">
+									<Label id="_IDGenLabel2" text="Société"/>
+								</Column>
+								<Column id="_IDGenColumn2">
+									<Label id="_IDGenLabel3" text="Immobilisation"/>
+								</Column>
+								<Column id="_IDGenColumn3">
+									<Label id="_IDGenLabel4" text="Nº subsidiaire"/>
+								</Column>
+								<Column id="_IDGenColumn4">
+									<Label id="_IDGenLabel5" text="Désignation"/>
+								</Column>
+                                <Column id="_IDGenColumn5">
+									<Label id="_IDGenLabel6" text="Date mise serv."/>
+								</Column>
+								<Column id="_IDGenColumn6">
+									<Label id="_IDGenLabel7" text="Quantité"/>
+								</Column>
+								<Column id="_IDGenColumn7">
+									<Label id="_IDGenLabel8" text="Centre de coûts"/>
+								</Column>
+                                <Column id="_IDGenColumn8">
+									<Label id="_IDGenLabel9" text="Division"/>
+								</Column>
+								<Column id="_IDGenColumn9">
+									<Label id="_IDGenLabel10" text="Dom.activité"/>
+								</Column>
+								<Column id="_IDGenColumn10">
+									<Label id="_IDGenLabel11" text="Fournisseur"/>
+								</Column>
+								<Column id="_IDGenColumn11">
+									<Label id="_IDGenLabel12" text="Valeur d'orig."/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem id="_IDGenColumnListItem1">
+									<cells>
+										<Text id="_IDGenText1" text="{localModel>Société}"/>
+										<Text id="_IDGenText2" text="{path: 'localModel>Immobilisation' , formatter: '.formatter.Anln1Format'}"/>
+										<Text id="_IDGenText3" text="{path: 'localModel>Nº subsidiaire' , formatter: '.formatter.Anln2Format'}"/>
+										<Text id="_IDGenText4" text="{localModel>Désignation}"/>
+                                        <Text id="_IDGenText5" text="{path: 'localModel>Date mise serv.' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText6" text="{localModel>Quantité}"/>
+										<Text id="_IDGenText7" text="{localModel>Centre de coûts}"/>
+										<Text id="_IDGenText8" text="{localModel>Division}"/>
+                                        <Text id="_IDGenText9" text="{localModel>Dom.activité}"/>
+										<Text id="_IDGenText10" text="{localModel>Fournisseur}"/>
+										<Text id="_IDGenText11" text="{localModel>Valeur d'orig.}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+</mvc:View>

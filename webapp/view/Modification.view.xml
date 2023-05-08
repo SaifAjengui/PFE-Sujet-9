@@ -11,7 +11,13 @@
 				
 		
 		<content>
-		
+		<Button text="Update by excel"
+						press="onPress"
+						ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+					<layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+				</Button>
             
             <Toolbar id="_IDGenToolbar1" >
 			

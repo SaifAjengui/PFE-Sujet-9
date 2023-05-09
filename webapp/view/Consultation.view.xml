@@ -23,7 +23,8 @@
         		<smartFilterBar:controlConfiguration>
         			<smartFilterBar:ControlConfiguration  id="_IDGenControlConfiguration1"
         				key="Bukrs" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
-        				preventInitialDataFetchInValueHelpDialog="false">
+        				preventInitialDataFetchInValueHelpDialog="false"
+						>
         			</smartFilterBar:ControlConfiguration>
 					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2"
         				key="Anln1" visibleInAdvancedArea="true" filterType="interval"
@@ -61,6 +62,10 @@
         				key="Ndjar" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
         				preventInitialDataFetchInValueHelpDialog="false">
         			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration11"
+        				key="Inken" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				>
+        			</smartFilterBar:ControlConfiguration>
         		</smartFilterBar:controlConfiguration>
         	</smartFilterBar:SmartFilterBar>
 			<smartTable:SmartTable 
@@ -68,7 +73,7 @@
 				smartFilterId="smartFilterBar" 
 				tableType="ResponsiveTable" 
 				editable="false"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
 				entitySet="ImmobilisationSet" 
 				useVariantManagement="false"
 				useTablePersonalisation="true" 
@@ -76,7 +81,7 @@
 				showRowCount="true"
 				useExportToExcel="true" 
 				showFullScreenButton="true"
-				enableAutoBinding="false"
+				enableAutoBinding="true"
 				>
 				<Table id="_IDGenTable1">
 				<columns>

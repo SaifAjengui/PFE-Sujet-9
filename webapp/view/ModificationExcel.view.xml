@@ -8,6 +8,10 @@
 	busyIndicatorDelay="0"
     xmlns:u="sap.ui.unified"
 >
+<Page id="_IDGenPage23" 
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
 
 				<Page id="page" title="Read From Excel">
 					<customHeader>
@@ -23,7 +27,7 @@
 				</Button>
                             </contentRight>
 							<contentMiddle>
-								<Label id="_IDGenLabel1" text="Read Data From Excel"/>
+								
 							</contentMiddle>
 							<contentRight>
 								<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
@@ -88,4 +92,5 @@
 						</Table>
 					</content>
 				</Page>
+</Page>
 </mvc:View>

@@ -2,11 +2,13 @@ sap.ui.define([
 	'./BaseController',
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/Item",
+	"sap/ui/core/routing/History",
 	// "sap/base/util/array",
 ], function(
 	BaseController,
 	formatter,
 	Item,
+	History
 	// array,
 ) {
 	"use strict";
@@ -92,6 +94,17 @@ sap.ui.define([
 
 			});
 			
+		},
+		onNavBack: function () {
+			var oHistory = History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
+
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("modificationHome", {}, true);
+			}
 		},
 	});
 });

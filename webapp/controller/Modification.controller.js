@@ -10,8 +10,9 @@ sap.ui.define([
 	"sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
 	'aymax/pfe/inventaire/model/formatter',
+	"sap/ui/core/routing/History",
 	
-], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator, formatter) {
+], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator, formatter,History) {
 	"use strict";
 	return BaseController.extend("aymax.pfe.inventaire.controller.Modification", {
 		formatter: formatter,
@@ -154,19 +155,16 @@ sap.ui.define([
 	
 		
 	},
-	onFilter : function (oEvent) {
-		// build filter array
-		var aFilter = [], sQuery = this.byId("searchInput").getProperty("value"),
-		// retrieve list control
-		oList = this.getView().byId("smartTable_ResponsiveTable1"),
-		// get binding for aggregation 'items'
-		oBinding = oList.getTable().getBinding("items");
-		if (sQuery) {
-		aFilter.push(new Filter("Anln1", FilterOperator.Contains, sQuery));
+	onNavBack: function () {
+		var oHistory = History.getInstance();
+		var sPreviousHash = oHistory.getPreviousHash();
+
+		if (sPreviousHash !== undefined) {
+			window.history.go(-1);
+		} else {
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("modificationHome", {}, true);
 		}
-		// apply filter. an empty filter array simply removes the filter
-		// which will make all entries visible again
-		oBinding.filter(aFilter);
 	},
 	
 

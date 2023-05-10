@@ -123,6 +123,11 @@
           "target": "consultation"
         },
         {
+          "pattern": "modificationHome",
+          "name": "modificationHome",
+          "target": "modificationHome"
+        },
+        {
           "pattern": "modification",
           "name": "modification",
           "target": "modification"
@@ -149,6 +154,10 @@
         "consultation": {
           "viewId": "consultation",
           "viewName": "Consultation"
+        },
+        "modificationHome": {
+          "viewId": "modificationHome",
+          "viewName": "ModificationHome"
         },
         "modification": {
           "viewId": "modification",

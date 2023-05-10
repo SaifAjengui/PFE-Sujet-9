@@ -1,0 +1,35 @@
+<mvc:View
+	height="100%"
+	controllerName="aymax.pfe.inventaire.controller.ModificationHome"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="_IDGenPage1"
+		showHeader="false"
+		enableScrolling="false" 
+		>
+		
+		<TileContainer
+			id="container"
+			tileDelete="handleTileDelete">
+			<StandardTile id="tile1" 
+				icon="sap-icon://excel-attachment"
+				title="Modification par Excel"
+				press="onUpdateExcel"
+			/>
+			<StandardTile id="tile2" 
+				icon="sap-icon://edit-outside"
+				title="Modification Simple"
+				press="onUpdateSimpel"
+			/>
+		</TileContainer>
+	
+		<footer>
+			<Toolbar id="_IDGenToolbar1">
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+					<Button id="_IDGenButton1" text="Modifier" press="handleEditPress" />
+				
+				<ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

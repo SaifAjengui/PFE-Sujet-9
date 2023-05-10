@@ -49,12 +49,8 @@ sap.ui.define([
 
 		uploadExcel: function(oEvent) {
 			var oModel = this.getOwnerComponent().getModel();
-			var ItemsNbr = this.getView().byId('Excel_data_table').getItems().length;
-			// console.log(this.getModel("localModel").getData().items[0]["Société"]);
 			var data = this.getModel("localModel").getData().items;
 			var context;
-			var Anln1;
-			var Anln2
 			data.forEach(row => {
 				context ={
 					Bukrs : row["Société"],
@@ -69,16 +65,11 @@ sap.ui.define([
 					Werks: row["Division"],
 					Gsber: row["Dom.activité"],
 				}
-				Anln1 = "0".repeat(12-context.Anln1.length) + context.Anln1;
-				Anln2 = "0".repeat(4-context.Anln2.length) + context.Anln2;
 
-
-				console.log(context.Aktiv);
 				if (context.Aktiv){
 				context.Aktiv = formatter.DateFormatExcel(context.Aktiv)+"T00:00:00";
-				console.log(context.Aktiv);
 				}
-				oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+Anln1 +"'"+','+"Anln2='"+Anln2 +"'"+ ")", context, {
+				oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000

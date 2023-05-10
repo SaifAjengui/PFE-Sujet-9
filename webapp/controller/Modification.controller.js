@@ -132,10 +132,8 @@ sap.ui.define([
 			if (context.Aktiv){
 				context.Aktiv=formatter.DateFormat(context.Aktiv);
 			}
-			Anln1 = "0".repeat(12-context.Anln1.length) + context.Anln1;
-			Anln2 = "0".repeat(4-context.Anln2.length) + context.Anln2;
 			
-			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+Anln1 +"'"+','+"Anln2='"+Anln2 +"'"+ ")", context, {
+			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000

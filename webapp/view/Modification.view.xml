@@ -3,7 +3,9 @@
 	xmlns:custumData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
-	xmlns:smartTable="sap.ui.comp.smarttable">
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:core="sap.ui.core">
+	
 
 	<Page id="_IDGenPage2" showHeader="false">
 		
@@ -19,13 +21,70 @@
 					</layoutData>
 				</Button>
             
-            <Toolbar id="_IDGenToolbar1" >
+            <!-- <Toolbar id="_IDGenToolbar1" >
 			
 	<SearchField id="searchInput" width="50%" liveChange="onFilter"/>
             </Toolbar>
-		
+		 -->
             
-           
+           	<smartFilterBar:SmartFilterBar 
+			liveMode="true"
+        		id="smartFilterBar"
+        		entityType="Immobilisation" 
+        		persistencyKey="SmartFilterPKey"
+				
+				>
+        		<smartFilterBar:controlConfiguration>
+        			<smartFilterBar:ControlConfiguration  id="_IDGenControlConfiguration1"
+        				key="Bukrs" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false"
+						>
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration2"
+        				key="Anln1" visibleInAdvancedArea="true" filterType="interval"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration3"
+        				key="Anln2" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration4"
+        				key="Anlkl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration5"
+        				key="Lifnr" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration6"
+        				key="Land1" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration7"
+        				key="Aktiv" visibleInAdvancedArea="true" filterType="interval"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration8"
+        				key="Kostl" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration9"
+        				key="Gsber" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration10"
+        				key="Ndjar" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				preventInitialDataFetchInValueHelpDialog="false">
+        			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration11"
+        				key="Inken" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
+        				>
+        			</smartFilterBar:ControlConfiguration>
+        		</smartFilterBar:controlConfiguration>
+        	</smartFilterBar:SmartFilterBar>
+
+
+
 			<smartTable:SmartTable 
 				id="smartTable_ResponsiveTable1"
 				showFullScreenButton="true"
@@ -45,7 +104,8 @@
 				custumData:useSmartToggle="true"
 				tableBindingPath="oModelMNA>/"
 				initialise="onInitialise"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,Gsber">
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,GsberInvnr,Invzu,Ivdat,Inken"
+				>
 				<smartTable:customToolbar>
 				<OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
 				<ToolbarSpacer id="_IDGenToolbarSpacer1" />

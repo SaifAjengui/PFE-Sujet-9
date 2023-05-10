@@ -5,7 +5,10 @@
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
 	xmlns:smartTable="sap.ui.comp.smarttable">
 
-	<Page id="_IDGenPage2" showHeader="false">
+	<Page id="_IDGenPage2" 
+		title="{i18n>detailPageTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
 		
 	
 				

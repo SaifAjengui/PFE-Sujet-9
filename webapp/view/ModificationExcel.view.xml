@@ -7,12 +7,12 @@
 	height="100%"
 	busyIndicatorDelay="0"
     xmlns:u="sap.ui.unified"
+	xmlns:html="http://www.w3.org/1999/xhtml"
 >
-<Page id="_IDGenPage23" 
+<Page id="_IDGenPage22" 
 		title="{i18n>detailPageTitle}"
 		showNavButton="true"
 		navButtonPress=".onNavBack">
-
 				<Page id="page" title="Read From Excel">
 					<customHeader>
 						<Bar id="_IDGenBar1">
@@ -26,9 +26,7 @@
 					</layoutData>
 				</Button>
                             </contentRight>
-							<contentMiddle>
-								
-							</contentMiddle>
+							
 							<contentRight>
 								<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
 									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/>

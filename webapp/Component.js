@@ -27,6 +27,16 @@ sap.ui.define([
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
+
+			
+			var jQueryScript = document.createElement('script');
+			jQueryScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.0/jszip.js');
+			document.head.appendChild(jQueryScript);
+		
+		
+			var jQueryScript = document.createElement('script');
+			jQueryScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.0/xlsx.js');
+			document.head.appendChild(jQueryScript);
 		},
 
 		myNavBack: function () {

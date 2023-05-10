@@ -123,9 +123,9 @@
           "target": "consultation"
         },
         {
-          "pattern": "modificationHome",
-          "name": "modificationHome",
-          "target": "modificationHome"
+          "pattern": "modificationhome",
+          "name": "modificationhome",
+          "target": "modificationhome"
         },
         {
           "pattern": "modification",
@@ -138,9 +138,9 @@
           "target": "settings"
         },
         {
-          "pattern": "modificationExcel",
-          "name": "modificationExcel",
-          "target": "modificationExcel"
+          "pattern": "modificationexcel",
+          "name": "modificationexcel",
+          "target": "modificationexcel"
         }
       
 
@@ -155,16 +155,16 @@
           "viewId": "consultation",
           "viewName": "Consultation"
         },
-        "modificationHome": {
-          "viewId": "modificationHome",
+        "modificationhome": {
+          "viewId": "modificationhome",
           "viewName": "ModificationHome"
         },
         "modification": {
           "viewId": "modification",
           "viewName": "Modification"
         },
-        "modificationExcel": {
-          "viewId": "modificationExcel",
+        "modificationexcel": {
+          "viewId": "modificationexcel",
           "viewName": "ModificationExcel"
         },
         "settings": {

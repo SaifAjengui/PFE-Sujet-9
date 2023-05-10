@@ -75,13 +75,17 @@ sap.ui.define([
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000
+						 
 					 };
 				}.bind(this),
 				error: function(error){
 					
 				}.bind(this)
+				
 			});
 
+			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("consultation");
 
 			});
 			
@@ -94,7 +98,7 @@ sap.ui.define([
 				window.history.go(-1);
 			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("modificationHome", {}, true);
+				oRouter.navTo("modificationhome", {}, true);
 			}
 		},
 	});

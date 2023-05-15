@@ -107,13 +107,12 @@
 				custumData:useSmartToggle="true"
 				tableBindingPath="oModelMNA>/"
 				initialise="onInitialise"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,GsberInvnr,Invzu,Ivdat,Inken"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
 				>
 				<smartTable:customToolbar>
 				<OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
 				<ToolbarSpacer id="_IDGenToolbarSpacer1" />
 				<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" icon="sap-icon://save" press="MultiEdit" tooltip="save"/>
-				<OverflowToolbarButton id="_IDGenOverflowToolbarButton3" icon="sap-icon://delete" press="" tooltip="Delete" />
 				</OverflowToolbar>
 				</smartTable:customToolbar>
 

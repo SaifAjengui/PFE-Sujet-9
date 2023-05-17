@@ -343,9 +343,7 @@ sap.ui.define([
 
 		}  
 
-	
-	
-		
+
 	},
 	onNavBack: function () {
 		var oHistory = History.getInstance();

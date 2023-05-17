@@ -19,5 +19,23 @@
 		"expanded": true,
 		"key": "modificationhome",
 		"items": []
+	},{
+		"titleI18nKey": "sideContentMiseEnRebus",
+		"icon": "sap-icon://delete",
+		"expanded": true,
+		"key": "miseenrebus",
+		"items": []
+	},{
+		"titleI18nKey": "sideContentTransfert",
+		"icon": "sap-icon://forward",
+		"expanded": true,
+		"key": "transfert",
+		"items": []
+	},{
+		"titleI18nKey": "sideContentVente",
+		"icon": "sap-icon://lead",
+		"expanded": true,
+		"key": "vente",
+		"items": []
 	}]
 }

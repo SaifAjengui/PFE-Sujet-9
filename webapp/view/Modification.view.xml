@@ -174,13 +174,14 @@
 				custumData:useSmartToggle="true"
 				tableBindingPath="oModelMNA>/"
 				initialise="onInitialise"
+
 				beforeRebindTable="onBeforeRebindTable"
+
 				>
 				<smartTable:customToolbar>
 				<OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
 				<ToolbarSpacer id="_IDGenToolbarSpacer1" />
 				<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" icon="sap-icon://save" press="MultiEdit" tooltip="save"/>
-				<OverflowToolbarButton id="_IDGenOverflowToolbarButton3" icon="sap-icon://delete" press="" tooltip="Delete" />
 				</OverflowToolbar>
 				</smartTable:customToolbar>
 

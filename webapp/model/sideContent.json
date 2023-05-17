@@ -17,7 +17,7 @@
 		"titleI18nKey": "sideContentModifications",
 		"icon": "sap-icon://line-chart",
 		"expanded": true,
-		"key": "modificationHome",
+		"key": "modificationhome",
 		"items": []
 	},{
 		"titleI18nKey": "sideContentMiseEnRebus",

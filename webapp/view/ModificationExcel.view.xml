@@ -16,6 +16,9 @@
 				<Page id="page" title="Read From Excel">
 					<customHeader>
 						<Bar id="_IDGenBar1">
+							<contentLeft>
+							<Title id="loaded_assets_num" text="Immobilisations(0)"></Title>
+							</contentLeft>
                             <contentRight>
                                 <Button id="button_save_loaded_data" text="Save loaded data"
                                 icon=""

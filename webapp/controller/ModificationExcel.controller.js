@@ -41,6 +41,7 @@ sap.ui.define([
 						items: excelData
 					});
 					that.localModel.refresh(true);
+					that.byId("loaded_assets_num").setText("Immobilisations("+that.getModel('localModel').getData().items.length+")");
 				};
 				reader.onerror = function (ex) {
 					console.log(ex);

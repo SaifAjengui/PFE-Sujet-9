@@ -149,7 +149,7 @@
 				smartFilterId="smartFilterBar"
 				tableType="Table" 
 				editable="false"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,GsberInvnr,Invzu,Ivdat,Inken"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,TXA50,Menge,Lifnr,Aktiv,Urwrt,Kostl,Werks,GsberInvnr,Invzu,Ivdat,Inken"
 				entitySet="ImmobilisationSet"
 				useVariantManagement="false"
 				useTablePersonalisation="true" 

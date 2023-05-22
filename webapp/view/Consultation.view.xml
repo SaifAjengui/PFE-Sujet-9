@@ -136,7 +136,7 @@
 				smartFilterId="smartFilterBar" 
 				tableType="ResponsiveTable" 
 				editable="false"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken,Meins"
 				entitySet="ImmobilisationSet" 
 				useVariantManagement="false"
 				useTablePersonalisation="true" 

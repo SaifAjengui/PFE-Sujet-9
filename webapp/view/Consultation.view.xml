@@ -56,7 +56,7 @@
 									showSecondaryValues="true"
 									selectionChange="customFieldChange"
 									>
-									<core:ListItem id="_IDGenItem4"  text="{oModelMNACategorie>Anlkl}" additionalText="{oModelMNACategorie>Anlkl}" key="{oModelMNACategorie>Anlkl}" />
+									<core:ListItem id="_IDGenItem4"  text="{oModelMNACategorie>Anlkl}" additionalText="{oModelMNACategorie>Txk50}" key="{oModelMNACategorie>Anlkl}" />
 									
 								</m:MultiComboBox>
 						</smartFilterBar:customControl>

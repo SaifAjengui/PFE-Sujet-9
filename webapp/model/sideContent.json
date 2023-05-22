@@ -20,10 +20,10 @@
 		"key": "modificationhome",
 		"items": []
 	},{
-		"titleI18nKey": "sideContentMiseEnRebus",
+		"titleI18nKey": "sideContentMiseAuRebut",
 		"icon": "sap-icon://delete",
 		"expanded": true,
-		"key": "miseenrebus",
+		"key": "miseenrebut",
 		"items": []
 	},{
 		"titleI18nKey": "sideContentTransfert",

@@ -335,14 +335,15 @@ sap.ui.define([
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000
 					 };
+					 location.reload();
 				}.bind(this),
 				error: function(error){
 					
 				}.bind(this)
 			});
-			location.reload();
+			
 		}  
-
+		
 	
 
 

@@ -340,8 +340,10 @@ sap.ui.define([
 					
 				}.bind(this)
 			});
-
+			location.reload();
 		}  
+
+	
 
 
 	},

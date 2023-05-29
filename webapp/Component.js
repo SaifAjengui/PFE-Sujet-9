@@ -17,7 +17,7 @@ sap.ui.define([
 
 		init: function () {
 			// reset the routing hash
-			HashChanger.getInstance().replaceHash("");
+			//HashChanger.getInstance().replaceHash("");
 
 			// call the init function of the parent
 			UIComponent.prototype.init.apply(this, arguments);

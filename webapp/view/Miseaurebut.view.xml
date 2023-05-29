@@ -1,0 +1,19 @@
+<mvc:View
+	controllerName="aymax.pfe.inventaire.controller.Miseaurebut"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+    xmlns:u="sap.ui.unified"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+>
+<Page id="_IDGenPage33" 
+		title="{i18n>sideContentMiseAuRebut}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+				
+					
+</Page>
+</mvc:View>

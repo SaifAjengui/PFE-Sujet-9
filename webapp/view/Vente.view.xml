@@ -1,0 +1,19 @@
+<mvc:View
+	controllerName="aymax.pfe.inventaire.controller.Vente"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+    xmlns:u="sap.ui.unified"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+>
+<Page id="_IDGenPage44" 
+		title="{i18n>sideContentVente}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+				
+					
+</Page>
+</mvc:View>

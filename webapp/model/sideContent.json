@@ -23,7 +23,7 @@
 		"titleI18nKey": "sideContentMiseAuRebut",
 		"icon": "sap-icon://delete",
 		"expanded": true,
-		"key": "miseenrebut",
+		"key": "miseaurebut",
 		"items": []
 	},{
 		"titleI18nKey": "sideContentTransfert",

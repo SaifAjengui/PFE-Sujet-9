@@ -141,6 +141,21 @@
           "pattern": "modificationexcel",
           "name": "modificationexcel",
           "target": "modificationexcel"
+        },
+        {
+          "pattern": "miseaurebut",
+          "name": "miseaurebut",
+          "target": "miseaurebut"
+        },
+        {
+          "pattern": "transfert",
+          "name": "transfert",
+          "target": "transfert"
+        },
+        {
+          "pattern": "vente",
+          "name": "vente",
+          "target": "vente"
         }
       
 
@@ -170,6 +185,18 @@
         "settings": {
           "viewId": "settings",
           "viewName": "Settings"
+        },
+        "miseaurebut": {
+          "viewId": "miseaurebut",
+          "viewName": "Miseaurebut"
+        },
+        "transfert": {
+          "viewId": "transfert",
+          "viewName": "Transfert"
+        },
+        "vente": {
+          "viewId": "vente",
+          "viewName": "Vente"
         }
       }
     },

@@ -52,25 +52,46 @@
 									<Label id="_IDGenLabel5" text="Désignation"/>
 								</Column>
                                 <Column id="_IDGenColumn5">
-									<Label id="_IDGenLabel6" text="Date mise serv."/>
+									<Label id="_IDGenLabel6" text="Désignation (2)"/>
 								</Column>
 								<Column id="_IDGenColumn6">
-									<Label id="_IDGenLabel7" text="Quantité"/>
+									<Label id="_IDGenLabel7" text="Txte n° princ.immo. "/>
 								</Column>
 								<Column id="_IDGenColumn7">
-									<Label id="_IDGenLabel8" text="Centre de coûts"/>
+									<Label id="_IDGenLabel8" text="Quantité"/>
 								</Column>
                                 <Column id="_IDGenColumn8">
-									<Label id="_IDGenLabel9" text="Division"/>
+									<Label id="_IDGenLabel9" text="UQ base"/>
 								</Column>
-								<Column id="_IDGenColumn9">
-									<Label id="_IDGenLabel10" text="Dom.activité"/>
+								<Column id="_IDGenColumn99">
+									<Label id="_IDGenLabel100" text="Fournisseur"/>
+								</Column>
+								<Column id="_IDGenColumn999">
+									<Label id="_IDGenLabel1000" text="Date mise serv."/>
+								</Column>
+								<Column id="_IDGenColumn9999">
+									<Label id="_IDGenLabel10000" text="Valeur d'orig."/>
 								</Column>
 								<Column id="_IDGenColumn10">
-									<Label id="_IDGenLabel11" text="Fournisseur"/>
+									<Label id="_IDGenLabel11" text="Centre de coûts"/>
 								</Column>
 								<Column id="_IDGenColumn11">
-									<Label id="_IDGenLabel12" text="Valeur d'orig."/>
+									<Label id="_IDGenLabel12" text="Division"/>
+								</Column>
+								<Column id="_IDGenColumn12">
+									<Label id="_IDGenLabel13" text="Dom.activité"/>
+								</Column>
+								<Column id="_IDGenColumn14">
+									<Label id="_IDGenLabel15" text="N° d'inventaire"/>
+								</Column>
+								<Column id="_IDGenColumn16">
+									<Label id="_IDGenLabel17" text="Comment.invent."/>
+								</Column>
+								<Column id="_IDGenColumn18">
+									<Label id="_IDGenLabel19" text="Dern.inventaire"/>
+								</Column>
+								<Column id="_IDGenColumn20">
+									<Label id="_IDGenLabel21" text="Code inventaire "/>
 								</Column>
 							</columns>
 							<items>
@@ -79,14 +100,22 @@
 										<Text id="_IDGenText1" text="{localModel>Société}"/>
 										<Text id="_IDGenText2" text="{path: 'localModel>Immobilisation' , formatter: '.formatter.Anln1Format'}"/>
 										<Text id="_IDGenText3" text="{path: 'localModel>Nº subsidiaire' , formatter: '.formatter.Anln2Format'}"/>
-										<Text id="_IDGenText4" text="{localModel>Désignation}"/>
-                                        <Text id="_IDGenText5" text="{path: 'localModel>Date mise serv.' , formatter: '.formatter.DateFormatExcel'}"/>
-										<Text id="_IDGenText6" text="{localModel>Quantité}"/>
-										<Text id="_IDGenText7" text="{localModel>Centre de coûts}"/>
-										<Text id="_IDGenText8" text="{localModel>Division}"/>
-                                        <Text id="_IDGenText9" text="{localModel>Dom.activité}"/>
-										<Text id="_IDGenText10" text="{localModel>Fournisseur}"/>
+										<Text id="_IDGenText4" text="{localModel>Désignation}"/>                                  
+										<Text id="_IDGenText5" text="{localModel>Désignation (2)}"/>
+										<Text id="_IDGenText6" text="{localModel>Txte n° princ.immo.}"/>
+										<Text id="_IDGenText7" text="{localModel>Quantité}"/>
+                                        <Text id="_IDGenText8" text="{localModel>UQ base}"/>
+										<Text id="_IDGenText9" text="{localModel>Fournisseur}"/>
+										<Text id="_IDGenText10" text="{path: 'localModel>Date mise serv.' , formatter: '.formatter.DateFormatExcel'}"/>
 										<Text id="_IDGenText11" text="{localModel>Valeur d'orig.}"/>
+										<Text id="_IDGenText13" text="{localModel>Centre de coûts}"/>
+										<Text id="_IDGenText14" text="{localModel>Division}"/>
+                                        <Text id="_IDGenText15" text="{localModel>Dom.activité}"/>
+										<Text id="_IDGenText16" text="{localModel>N° d'inventaire}"/>
+										<Text id="_IDGenText17" text="{localModel>Comment.invent.}"/>
+										<Text id="_IDGenText18" text="{path: 'localModel>Dern.inventaire' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText19" text="{path: 'localModel>Code inventaire' , formatter: '.formatter.CodeInventaire'}"/>
+										 
 									</cells>
 								</ColumnListItem>
 							</items>

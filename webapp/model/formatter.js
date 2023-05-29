@@ -74,5 +74,14 @@ sap.ui.define([
 			}
 			
 		},
+
+		CodeInventaire: function (Code) {
+			if (Code==="Oui" || Code==="true"){
+				 return true;}
+			if (Code==="Non" || Code==="false" || Code==="")
+			{return false;}
+			
+	
+		},
 	};
 });

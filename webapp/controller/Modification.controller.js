@@ -304,11 +304,9 @@ sap.ui.define([
 		var oModel = this.getOwnerComponent().getModel();
 	
 		var items =  this.getView().byId('smartTable_ResponsiveTable1').getTable().getSelectedIndices();
-		var row;  
-		var itemObject;   
+		var row;   
 		var context; 
-		var Anln1;
-		var Anln2;
+
 		for(var i = 0; i < items.length; i++){  
 			row = items[i];  
 			context  = {
@@ -317,25 +315,40 @@ sap.ui.define([
 				Anln2: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anln2'),
 				
 				Txt50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txt50'),
+				Txa50: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Txa50'),
+				Anlhtxt: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Anlhtxt'),
 				Menge: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Menge'),
+				Meins: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Meins'),
 				Lifnr: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Lifnr'),
 				Aktiv: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Aktiv'),
 				Urwrt: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Urwrt'),
 				Kostl: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Kostl'),
 				Werks: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Werks'),
 				Gsber: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Gsber'),
+				Invnr: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Invnr'),
+				Invzu: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Invzu'),
+				Ivdat: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Ivdat'),
+				Inken: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Inken'),
 
 			};
 			if (context.Aktiv){
 				context.Aktiv=formatter.DateFormat(context.Aktiv);
 			}
-			
+			if (context.Ivdat){
+				context.Ivdat=formatter.DateFormat(context.Ivdat);
+			}
+			if (context.Inken){
+				context.Inken = formatter.CodeInventaire(context.Inken);
+			}
+			if (context.Inken===""){
+				context.Inken = formatter.CodeInventaire(context.Inken);
+			}
 			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000
 					 };
-					 location.reload();
+					// location.reload();
 				}.bind(this),
 				error: function(error){
 					
@@ -343,7 +356,7 @@ sap.ui.define([
 			});
 			
 		}  
-		
+
 	
 
 

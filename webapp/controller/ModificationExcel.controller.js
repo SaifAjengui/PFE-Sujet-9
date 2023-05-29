@@ -1,13 +1,11 @@
 sap.ui.define([
 	'./BaseController',
 	'aymax/pfe/inventaire/model/formatter',
-	"sap/ui/core/Item",
 	"sap/ui/core/routing/History",
 	// "sap/base/util/array",
 ], function(
 	BaseController,
 	formatter,
-	Item,
 	History
 	// array,
 ) {
@@ -42,6 +40,7 @@ sap.ui.define([
 					});
 					that.localModel.refresh(true);
 					that.byId("loaded_assets_num").setText("Immobilisations("+that.getModel('localModel').getData().items.length+")");
+					console.log(that.getModel("localModel").getData().items)
 				};
 				reader.onerror = function (ex) {
 					console.log(ex);
@@ -60,34 +59,46 @@ sap.ui.define([
 					Anln1: row["Immobilisation"],
 					Anln2: row["Nº subsidiaire"],		
 					Txt50: row["Désignation"],
+					Txa50: row["Désignation (2)"],
+					Anlhtxt: row["Txte n° princ.immo."],
 					Menge: row["Quantité"],
+					Meins: row["UQ base"],
 					Lifnr: row["Fournisseur"],
 					Aktiv: row["Date mise serv."],
 					Urwrt: row["Valeur d'orig."],
 					Kostl: row["Centre de coûts"],
 					Werks: row["Division"],
 					Gsber: row["Dom.activité"],
+					Invnr: row["N° d'inventaire"],
+					Invzu: row["Comment.invent."],
+					Ivdat: row["Dern.inventaire"],
+					Inken: row["Code inventaire"],
+					//Inken: true,
 				}
 
 				if (context.Aktiv){
 				context.Aktiv = formatter.DateFormatExcel(context.Aktiv)+"T00:00:00";
 				}
+				if (context.Ivdat){
+					context.Ivdat = formatter.DateFormatExcel(context.Ivdat)+"T00:00:00";
+				}
+				if (context.Inken){
+					context.Inken = formatter.CodeInventaire(context.Inken);
+				}
+				
 				oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
 				success: function(data, response){
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000
 						 
 					 };
+					 location.reload();
 				}.bind(this),
 				error: function(error){
 					
 				}.bind(this)
 				
 			});
-
-			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("consultation");
-
 			});
 			
 		},

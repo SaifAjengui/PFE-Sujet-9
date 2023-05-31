@@ -7,13 +7,83 @@
 	height="100%"
 	busyIndicatorDelay="0"
     xmlns:u="sap.ui.unified"
-	xmlns:html="http://www.w3.org/1999/xhtml"
->
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
 <Page id="_IDGenPage44" 
 		title="{i18n>sideContentVente}"
 		showNavButton="true"
 		navButtonPress=".onNavBack">
-				
+					<Page id="page" title="Read From Excel">
+					<customHeader>
+						<Bar id="_IDGenBar1">
+							<contentLeft>
+							<Title id="loaded_assets_num" text="Immobilisations(0)"></Title>
+							</contentLeft>
+                            <contentRight>
+                                 <Button id="button_save_loaded_data" icon="sap-icon://save" text="Enregistrer"
+						press="uploadExcel"
+						ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+					<layoutData>
+						<FlexItemData id="_IDGenFlexItemData1" growFactor="1" />
+					</layoutData>
+				</Button>
+                            </contentRight>
+							
+							<contentRight>
+								<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Table id="Excel_data_table" items="{localModel>/items}">
+							<columns>
+								<Column id="_IDGenColumn1">
+									<Label id="_IDGenLabel2" text="Société"/>
+								</Column>
+								<Column id="_IDGenColumn2">
+									<Label id="_IDGenLabel3" text="Immobilisation"/>
+								</Column>
+								<Column id="_IDGenColumn3">
+									<Label id="_IDGenLabel4" text="Nº subsidiaire"/>
+								</Column>
+								<Column id="_IDGenColumn4">
+									<Label id="_IDGenLabel5" text="Tableau d'évaluation "/>
+								</Column>
+                                <Column id="_IDGenColumn5">
+									<Label id="_IDGenLabel6" text="Date de document"/>
+								</Column>
+								<Column id="_IDGenColumn6">
+									<Label id="_IDGenLabel7" text="Date comptable"/>
+								</Column>
+								<Column id="_IDGenColumn7">
+									<Label id="_IDGenLabel8" text="Date de référence"/>
+								</Column>
+                                <Column id="_IDGenColumn9">
+									<Label id="_IDGenLabel10" text="Texte"/>
+								</Column>
+								 <Column id="_IDGenColumn11">
+									<Label id="_IDGenLabel12" text="Produit cession"/>
+								</Column>
+								 
+							</columns>
+							<items>
+								<ColumnListItem id="_IDGenColumnListItem1">
+									<cells>
+										<Text id="_IDGenText1" text="{localModel>Société}"/>
+										<Text id="_IDGenText2" text="{path: 'localModel>Immobilisation' , formatter: '.formatter.Anln1Format'}"/>
+										<Text id="_IDGenText3" text="{path: 'localModel>Nº subsidiaire' , formatter: '.formatter.Anln2Format'}"/>
+										<Text id="_IDGenText4" text="{localModel>Tableau d'éval.}"/>
+                                        <Text id="_IDGenText5" text="{path: 'localModel>Date document' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText6" text="{path: 'localModel>Date comptable' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText7" text="{path: 'localModel>Date de référ.' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText8" text="{localModel>Texte}"/>
+										<Text id="_IDGenText9" text="{localModel>Produit cession}"/>									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>	
 					
 </Page>
 </mvc:View>

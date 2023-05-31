@@ -18,11 +18,6 @@
 		
 		<content>
             
-            <!-- <Toolbar id="_IDGenToolbar1" >
-			
-	<SearchField id="searchInput" width="50%" liveChange="onFilter"/>
-            </Toolbar>
-		 -->
             
            	<smartFilterBar:SmartFilterBar 
 			liveMode="true"

@@ -20,8 +20,7 @@
 							<Title id="loaded_assets_num" text="Immobilisations(0)"></Title>
 							</contentLeft>
                             <contentRight>
-                                <Button id="button_save_loaded_data" text="Save loaded data"
-                                icon=""
+                                <Button id="button_save_loaded_data" icon="sap-icon://save" text="Enregistrer"
 						press="uploadExcel"
 						ariaDescribedBy="defaultButtonDescription genericButtonDescription">
 					<layoutData>
@@ -52,10 +51,10 @@
 									<Label id="_IDGenLabel5" text="Tableau d'évaluation "/>
 								</Column>
                                 <Column id="_IDGenColumn5">
-									<Label id="_IDGenLabel6" text="Date comptable"/>
+									<Label id="_IDGenLabel6" text="Date de document"/>
 								</Column>
 								<Column id="_IDGenColumn6">
-									<Label id="_IDGenLabel7" text="Date de document"/>
+									<Label id="_IDGenLabel7" text="Date comptable"/>
 								</Column>
 								<Column id="_IDGenColumn7">
 									<Label id="_IDGenLabel8" text="Date de référence"/>
@@ -71,10 +70,10 @@
 										<Text id="_IDGenText1" text="{localModel>Société}"/>
 										<Text id="_IDGenText2" text="{path: 'localModel>Immobilisation' , formatter: '.formatter.Anln1Format'}"/>
 										<Text id="_IDGenText3" text="{path: 'localModel>Nº subsidiaire' , formatter: '.formatter.Anln2Format'}"/>
-										<Text id="_IDGenText4" text="{localModel>Tableau d'évaluation}"/>
-                                        <Text id="_IDGenText5" text="{path: 'localModel>Date comptable' , formatter: '.formatter.DateFormatExcel'}"/>
-										<Text id="_IDGenText6" text="{localModel>Date de document}"/>
-										<Text id="_IDGenText7" text="{localModel>Date de référence}"/>
+										<Text id="_IDGenText4" text="{localModel>Tableau d'éval.}"/>
+                                        <Text id="_IDGenText5" text="{path: 'localModel>Date document' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText6" text="{path: 'localModel>Date comptable' , formatter: '.formatter.DateFormatExcel'}"/>
+										<Text id="_IDGenText7" text="{path: 'localModel>Date de référ.' , formatter: '.formatter.DateFormatExcel'}"/>
 										<Text id="_IDGenText8" text="{localModel>Texte}"/>
 									</cells>
 								</ColumnListItem>

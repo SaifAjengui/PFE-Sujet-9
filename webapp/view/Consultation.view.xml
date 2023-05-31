@@ -3,12 +3,12 @@
  xmlns:f="sap.ui.layout.form"
  xmlns:m="sap.m"
  xmlns:t="sap.ui.table"
- 	xmlns:u="sap.ui.unified"
-		xmlns:c="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc"
-	
-	 xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
-	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartVariantManagement="sap.ui.comp.smartvariants">
+ xmlns:u="sap.ui.unified"
+ xmlns:c="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" 
+ xmlns:smartTable="sap.ui.comp.smarttable">
+ 
 	<Page id="_IDGenPage3" showHeader="false">
 		
 	

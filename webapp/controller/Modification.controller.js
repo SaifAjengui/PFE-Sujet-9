@@ -1,18 +1,12 @@
 sap.ui.define([
 	'./BaseController',
-	"sap/ui/model/odata/v2/ODataModel",
-	"sap/ui/core/util/MockServer",
-	"sap/m/MessageToast",
-	"sap/ui/model/resource/ResourceModel",
-	"sap/ui/core/syncStyleClass",
-	"sap/ui/core/Fragment",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/routing/History",
 	
-], function (BaseController,ODataModel, MockServer, MessageToast, ResourceModel, syncStyleClass, Fragment,JSONModel, Filter, FilterOperator, formatter,History) {
+], function (BaseController,JSONModel, Filter, FilterOperator, formatter,History) {
 	"use strict";
 	return BaseController.extend("aymax.pfe.inventaire.controller.Modification", {
 		formatter: formatter,
@@ -348,7 +342,7 @@ sap.ui.define([
 					sap.m.MessageToast.show("Success"), {
 						 duration: 3000
 					 };
-					// location.reload();
+					 location.reload();
 				}.bind(this),
 				error: function(error){
 					

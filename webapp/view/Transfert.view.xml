@@ -80,8 +80,8 @@
 										<Text id="_IDGenText6" text="{path: 'localModel>Date comptable' , formatter: '.formatter.DateFormatExcel'}"/>
 										<Text id="_IDGenText7" text="{path: 'localModel>Date de référ.' , formatter: '.formatter.DateFormatExcel'}"/>
 										<Text id="_IDGenText8" text="{localModel>Texte}"/>
-										<Text id="_IDGenText9" text="{localModel>Numéro de l'immobilisation apportée/sortante pour transfert}"/>
-										<Text id="_IDGenText10" text="{localModel>N° subsidiaire de l'immob. apportée/sortante pour transfert}"/>
+										<Text id="_IDGenText9" text="{localModel>Immobilisation cible}"/>
+										<Text id="_IDGenText10" text="{localModel>Nº subsidiaire cible}"/>
 									</cells>
 								</ColumnListItem>
 							</items>

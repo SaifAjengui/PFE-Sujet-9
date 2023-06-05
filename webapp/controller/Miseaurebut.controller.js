@@ -2,11 +2,16 @@ sap.ui.define([
 	'./BaseController',
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/routing/History",
-	// "sap/base/util/array",
+	"sap/ui/core/util/ExportTypeCSV",
+	"sap/ui/core/util/Export",
+	"sap/m/MessageBox"
 ], function(
 	BaseController,
 	formatter,
-	History
+	History,
+	ExportTypeCSV,
+	Export,
+	MessageBox
 ) {
 	"use strict";
 
@@ -92,9 +97,45 @@ sap.ui.define([
 		});
 		
 	},
+	
+	
+	/*download: function () {
+		var oExport = new Export({
+		  exportType: new ExportTypeCSV({ // required from "sap/ui/core/util/ExportTypeCSV"
+			separatorChar: ",",
+			charset: "utf-8",
+			fileExtension: "xlsx",
+			
+		  }),
+		  models: this.getView().getModel("localModel"),
+		  rows: { path: "/" },
+		  columns: [
+			{
+			  name: "Name",
+			  template: {
+				content: ""
+			  }
+			},
+			{
+			  name: "Address",
+			  template: {
+				content: ""
+			  }
+			},
+			
+		  ]
+		});
+		oExport.saveFile("myNewFileName")
+                .catch(function (oError) {
+		  MessageBox.error("Error when downloading data. ..." + oError);
+		}).then(function() {
+		  oExport.destroy();
+		});
+	  },*/
 			
 		
 		onNavBack: function () {
+			
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 

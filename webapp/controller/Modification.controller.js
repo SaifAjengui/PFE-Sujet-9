@@ -300,7 +300,11 @@ sap.ui.define([
 		var items =  this.getView().byId('smartTable_ResponsiveTable1').getTable().getSelectedIndices();
 		var row;   
 		var context; 
-
+		var xModel = new JSONModel({
+			messages: []
+		})
+		this.getView().setModel(xModel, 'responseModel');
+		var that = this;
 		for(var i = 0; i < items.length; i++){  
 			row = items[i];  
 			context  = {
@@ -339,19 +343,26 @@ sap.ui.define([
 			}
 			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
 				success: function(data, response){
-					sap.m.MessageToast.show("Success"), {
+					sap.m.MessageToast.show(JSON.parse(response.headers['sap-message'])['message']), {
 						 duration: 3000
 					 };
-					 location.reload();
+					 let entry = that.getView().getModel('responseModel').getData();
+					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+					//  console.log(that.getView().getModel('responseModel').getData());
+					//  location.reload();
 				}.bind(this),
-				error: function(error){
-					
+				error: function(error,response){
+					sap.m.MessageToast.show(JSON.parse(response.headers['sap-message'])['message']), {
+						 duration: 3000
+					 };
+					 let entry = that.getView().getModel('responseModel').getData();
+					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+					//  console.log(that.getView().getModel('responseModel').getData());
 				}.bind(this)
 			});
 			
 		}  
-
-	
+		// console.log(this.getView().getModel('responseModel').getData());
 
 
 	},

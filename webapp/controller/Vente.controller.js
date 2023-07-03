@@ -1,9 +1,11 @@
 sap.ui.define([
 	'./BaseController',
+	"sap/ui/model/json/JSONModel",
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/routing/History",
 ], function(
 	BaseController,
+	JSONModel,
 	formatter,
 	History
 ) {
@@ -50,7 +52,12 @@ sap.ui.define([
 		uploadExcel: function(oEvent) {
 			var oModel = this.getOwnerComponent().getModel();
 			var data = this.getModel("localModel").getData().items;
+			var that = this;
 			var context;
+			var xModel = new JSONModel({
+				messages: []
+			})
+			this.getView().setModel(xModel, 'responseModel');
 			data.forEach(row => {
 				context ={
 					Bukrs : row["Société"],
@@ -81,7 +88,11 @@ sap.ui.define([
 						 duration: 3000
 						 
 					 };
-					 location.reload();
+					 let entry = that.getView().getModel('responseModel').getData();
+					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+					 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
+					 var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+					oRouter.navTo("log");
 				}.bind(this),
 				error: function(error){
 					

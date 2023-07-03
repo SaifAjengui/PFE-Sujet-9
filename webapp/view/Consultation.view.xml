@@ -129,6 +129,20 @@
         				key="Inken" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
         				>
         			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration12"
+        				key="Ord41" visibleInAdvancedArea="true"  label="Statut Immobilisation"
+        				preventInitialDataFetchInValueHelpDialog="false">
+						<smartFilterBar:customControl>
+								<m:MultiComboBox items="{oModelMNACritereDeTri>/}" 
+									id="multiComboBoxCritereDeTri"
+									showSecondaryValues="true"
+									selectionChange="customFieldChange"
+									>
+									<core:ListItem id="_IDGenItem7"  text="{oModelMNACritereDeTri>Ord4x}" additionalText="{oModelMNACritereDeTri>Ordtx}" key="{oModelMNACritereDeTri>Ord4x}" />
+									
+								</m:MultiComboBox>
+							</smartFilterBar:customControl>
+        			</smartFilterBar:ControlConfiguration>
         		</smartFilterBar:controlConfiguration>
         	</smartFilterBar:SmartFilterBar>
 			<smartTable:SmartTable 

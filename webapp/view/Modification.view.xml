@@ -134,6 +134,20 @@
         				key="Inken" visibleInAdvancedArea="true" conditionPanelDefaultOperation="EQ"
         				>
         			</smartFilterBar:ControlConfiguration>
+					<smartFilterBar:ControlConfiguration id="_IDGenControlConfiguration12"
+        				key="Ord41" visibleInAdvancedArea="true"  label="Statut Immobilisation"
+        				preventInitialDataFetchInValueHelpDialog="false">
+						<smartFilterBar:customControl>
+								<m:MultiComboBox items="{oModelMNACritereDeTri>/}" 
+									id="multiComboBoxCritereDeTri"
+									showSecondaryValues="true"
+									selectionChange="customFieldChange"
+									>
+									<core:ListItem id="_IDGenItem7"  text="{oModelMNACritereDeTri>Ord4x}" additionalText="{oModelMNACritereDeTri>Ordtx}" key="{oModelMNACritereDeTri>Ord4x}" />
+									
+								</m:MultiComboBox>
+							</smartFilterBar:customControl>
+        			</smartFilterBar:ControlConfiguration>
         		</smartFilterBar:controlConfiguration>
         	</smartFilterBar:SmartFilterBar>
 
@@ -144,7 +158,7 @@
 				smartFilterId="smartFilterBar"
 				tableType="Table" 
 				editable="false"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Txa50,Anlhtxt,Menge,Meins,Lifnr,Aktiv,Urwrt,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Txa50,Anlhtxt,Menge,Meins,Ord41,Lifnr,Aktiv,Urwrt,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
 				ignoredFields="Sansl,Aafav,Knafa,Peraf,Ndper,Ndjar,Afasl,Anlkl,Land1"
 				entitySet="ImmobilisationSet"
 				useVariantManagement="false"

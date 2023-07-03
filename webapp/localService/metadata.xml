@@ -9,6 +9,7 @@
      <PropertyRef Name="Anln2"/>
     </Key>
     <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Société" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+    <Property Name="Ord41" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Critère tri 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Txa50" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Désignation (2)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Anlhtxt" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Txte n° princ.immo." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="UQ base" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
@@ -114,8 +115,8 @@
      <PropertyRef Name="Anln1"/>
      <PropertyRef Name="Anln2"/>
     </Key>
-    <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Société" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Erlbt" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="Produit cession" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Société" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Anln1" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Immobilisation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Anln2" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Nº subsidiaire" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="AfabePost" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Tableau d'éval." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -123,6 +124,13 @@
     <Property Name="Budat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date comptable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Bzdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date de référ." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
     <Property Name="Sgtxt" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Texte" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </EntityType>
+   <EntityType Name="StatutImmo" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="Ord4x"/>
+    </Key>
+    <Property Name="Ord4x" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Crit. tri 1-4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Ordtx" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
    </EntityType>
    <EntityContainer Name="ZINVENTAIRE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
     <EntitySet Name="ImmobilisationSet" EntityType="ZINVENTAIRE_SRV.Immobilisation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:requires-filter="true" sap:content-version="1"/>
@@ -135,6 +143,7 @@
     <EntitySet Name="RebutSet" EntityType="ZINVENTAIRE_SRV.Rebut" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
     <EntitySet Name="TransfertSet" EntityType="ZINVENTAIRE_SRV.Transfert" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
     <EntitySet Name="VenteSansClientSet" EntityType="ZINVENTAIRE_SRV.VenteSansClient" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+    <EntitySet Name="StatutImmoSet" EntityType="ZINVENTAIRE_SRV.StatutImmo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
    </EntityContainer>
    <atom:link rel="self" href="http://ADEDEV.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
    <atom:link rel="latest-version" href="http://ADEDEV.aymax.local:8000/sap/opu/odata/sap/ZINVENTAIRE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>

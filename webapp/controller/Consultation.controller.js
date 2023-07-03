@@ -18,6 +18,7 @@ sap.ui.define([
 			this._oCustomMultiComboBoxCategorie = this.byId("multiComboBoxCategorie");
 			this._oCustomMultiComboBoxCentreDeCout = this.byId("multiComboBoxCentreDeCout");
 			this._oCustomMultiComboBoxDomaineActivite = this.byId("multiComboBoxDomaineActivite");
+			this._oCustomMultiComboBoxCritereDeTri = this.byId("multiComboBoxCritereDeTri");
 		
 			var oModel = this.getOwnerComponent().getModel();
 			var oModelPays = this.getOwnerComponent().getModel();
@@ -25,6 +26,7 @@ sap.ui.define([
 			var oModelCategorie = this.getOwnerComponent().getModel();
 			var oModelCentreDeCout = this.getOwnerComponent().getModel();
 			var oModelDomaineActivite = this.getOwnerComponent().getModel();
+			var oModelCritereDeTri = this.getOwnerComponent().getModel();
 
 			var sSet = "/" + "SocieteSet";
 			var sSetPays="/"+ "PaysSet";
@@ -32,6 +34,7 @@ sap.ui.define([
 			var sSetCategorie="/"+ "categorieSet";
 			var sSetCentreDeCout="/"+ "CentreDeCoutSet";
 			var sSetDomaineActivite="/"+ "DomaineActiviteSet";
+			var sSetCritereDeTri="/"+ "StatutImmoSet";
 
 			oModel.read(sSet, {
 				success: function (oData) {
@@ -99,6 +102,16 @@ sap.ui.define([
 				}
 			});
 
+			oModelCritereDeTri.read(sSetCritereDeTri, {
+				success: function (oData) {
+					var oModelMNACritereDeTri = new JSONModel();
+					oModelMNACritereDeTri.setData(oData.results);
+					this.getView().setModel(oModelMNACritereDeTri, "oModelMNACritereDeTri");
+				}.bind(this),
+				error: function (oResponse) {
+					sap.m.MessageToast.show("oData fetching failed");
+				}
+			});
 
 
 
@@ -114,7 +127,8 @@ sap.ui.define([
 				aSelectedItemsFournisseur = this._oCustomMultiComboBoxFournisseur.getSelectedItems(),
 				aSelectedItemsCategorie = this._oCustomMultiComboBoxCategorie.getSelectedItems(),
 				aSelectedItemsCentreDeCout = this._oCustomMultiComboBoxCentreDeCout.getSelectedItems(),
-				aSelectedItemsDomaineActivite = this._oCustomMultiComboBoxDomaineActivite.getSelectedItems();
+				aSelectedItemsDomaineActivite = this._oCustomMultiComboBoxDomaineActivite.getSelectedItems(),
+				aSelectedItemsCritereDeTri = this._oCustomMultiComboBoxCritereDeTri.getSelectedItems();
 			aSelectedItems.forEach(function(oSelectedItem) {
 				mBindingParams.filters.push(
 					new Filter(
@@ -169,6 +183,16 @@ sap.ui.define([
 				mBindingParams.filters.push(
 					new Filter(
 						"Gsber",
+						FilterOperator.EQ,
+						oSelectedItem.getText()
+					)
+				);
+			});
+
+			aSelectedItemsCritereDeTri.forEach(function(oSelectedItem) {
+				mBindingParams.filters.push(
+					new Filter(
+						"Ord41",
 						FilterOperator.EQ,
 						oSelectedItem.getText()
 					)

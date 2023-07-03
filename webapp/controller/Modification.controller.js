@@ -18,6 +18,7 @@ sap.ui.define([
 			this._oCustomMultiComboBoxCategorie = this.byId("multiComboBoxCategorie");
 			this._oCustomMultiComboBoxCentreDeCout = this.byId("multiComboBoxCentreDeCout");
 			this._oCustomMultiComboBoxDomaineActivite = this.byId("multiComboBoxDomaineActivite");
+			this._oCustomMultiComboBoxCritereDeTri = this.byId("multiComboBoxCritereDeTri");
 
 			var oModelSociete = this.getOwnerComponent().getModel();
 			var oModelPays = this.getOwnerComponent().getModel();
@@ -25,6 +26,7 @@ sap.ui.define([
 			var oModelCategorie = this.getOwnerComponent().getModel();
 			var oModelCentreDeCout = this.getOwnerComponent().getModel();
 			var oModelDomaineActivite = this.getOwnerComponent().getModel();
+			var oModelCritereDeTri = this.getOwnerComponent().getModel();
 
 			var sSetSociete = "/" + "SocieteSet";
 			var sSetPays="/"+ "PaysSet";
@@ -32,6 +34,7 @@ sap.ui.define([
 			var sSetCategorie="/"+ "categorieSet";
 			var sSetCentreDeCout="/"+ "CentreDeCoutSet";
 			var sSetDomaineActivite="/"+ "DomaineActiviteSet";
+			var sSetCritereDeTri="/"+ "StatutImmoSet";
 
 			oModelSociete.read(sSetSociete, {
 				success: function (oData) {
@@ -100,6 +103,18 @@ sap.ui.define([
 			});
 
 
+			oModelCritereDeTri.read(sSetCritereDeTri, {
+				success: function (oData) {
+					var oModelMNACritereDeTri = new JSONModel();
+					oModelMNACritereDeTri.setData(oData.results);
+					this.getView().setModel(oModelMNACritereDeTri, "oModelMNACritereDeTri");
+				}.bind(this),
+				error: function (oResponse) {
+					sap.m.MessageToast.show("oData fetching failed");
+				}
+			});
+
+
 			var oModel = this.getOwnerComponent().getModel();
 			var sSet = "/" + "ImmobilisationSet";
 			oModel.read(sSet, {
@@ -124,7 +139,9 @@ sap.ui.define([
 				aSelectedItemsFournisseur = this._oCustomMultiComboBoxFournisseur.getSelectedItems(),
 				aSelectedItemsCategorie = this._oCustomMultiComboBoxCategorie.getSelectedItems(),
 				aSelectedItemsCentreDeCout = this._oCustomMultiComboBoxCentreDeCout.getSelectedItems(),
-				aSelectedItemsDomaineActivite = this._oCustomMultiComboBoxDomaineActivite.getSelectedItems();
+				aSelectedItemsDomaineActivite = this._oCustomMultiComboBoxDomaineActivite.getSelectedItems(),
+				aSelectedItemsCritereDeTri = this._oCustomMultiComboBoxCritereDeTri.getSelectedItems();
+
 			aSelectedItemsSociete.forEach(function(oSelectedItem) {
 				mBindingParams.filters.push(
 					new Filter(
@@ -185,6 +202,17 @@ sap.ui.define([
 				);
 			});
 
+			aSelectedItemsCritereDeTri.forEach(function(oSelectedItem) {
+				mBindingParams.filters.push(
+					new Filter(
+						"Ord41",
+						FilterOperator.EQ,
+						oSelectedItem.getText()
+					)
+				);
+			});
+
+			
 
 			
 		},
@@ -327,7 +355,7 @@ sap.ui.define([
 				Invzu: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Invzu'),
 				Ivdat: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Ivdat'),
 				Inken: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Inken'),
-
+				Ord41: this.getView().byId('smartTable_ResponsiveTable1').getTable().getContextByIndex(row).getProperty('Ord41'),
 			};
 			if (context.Aktiv){
 				context.Aktiv=formatter.DateFormat(context.Aktiv);
@@ -342,14 +370,22 @@ sap.ui.define([
 				context.Inken = formatter.CodeInventaire(context.Inken);
 			}
 			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
+
 				success: function(data, response){
 					sap.m.MessageToast.show(JSON.parse(response.headers['sap-message'])['message']), {
 						 duration: 3000
 					 };
 					 let entry = that.getView().getModel('responseModel').getData();
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+					 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 					//  console.log(that.getView().getModel('responseModel').getData());
 					//  location.reload();
+					var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+					oRouter.navTo("log");
+					console.log("log",JSON.parse(response.headers['sap-message']))
+					
+					console.log(entry);
+					console.log(xModel);
 				}.bind(this),
 				error: function(error,response){
 					sap.m.MessageToast.show(JSON.parse(response.headers['sap-message'])['message']), {
@@ -359,11 +395,61 @@ sap.ui.define([
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					//  console.log(that.getView().getModel('responseModel').getData());
 				}.bind(this)
+				
 			});
 			
 		}  
-		// console.log(this.getView().getModel('responseModel').getData());
 
+		for(var i = 0; i < 2; i++){  
+
+		context  = {
+			Extnumber  : "ABC",
+			Object     : "ZFLE",
+			Subobject  : "ZFLE001",
+			TimeStmp   : "\/Date(1686741109781)\/",
+			HeaderToItem : [
+			{
+				Msgty      : "S",
+				Msgv1      : "aaa",
+				Msgv2      : "bbb",
+				Msgv3      : "ccc",
+				Msgv4      : "ddd",
+				Object     : "ZFLE",
+				Subobject  : "ZFLE001",
+				TimeStmp   : "\/Date(1686741109781)\/"
+				},
+				{
+				Msgty      : "E",
+				Msgv1      : "1",
+				Msgv2      : "2",
+				Msgv3      : "3",
+				Msgv4      : "4",
+				Object     : "ZFLE",
+				Subobject  : "ZFLE001",
+				TimeStmp   : "\/Date(1686741109781)\/"
+				}
+				]
+		}
+		oModel.create("/MessageHeaderSet", context, {
+			success: function(data, response){
+				sap.m.MessageToast.show("success"), {
+					 duration: 3000
+				 };
+				}.bind(this),
+				error: function(error,response){
+					sap.m.MessageToast.show("error"), {
+						 duration: 3000
+					 };
+			
+				}.bind(this)
+			});
+		
+		
+		};
+
+
+		//console.log(this.getView().getModel('responseModel').getData());
+		
 
 	},
 	onNavBack: function () {

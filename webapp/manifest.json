@@ -157,6 +157,11 @@
           "pattern": "vente",
           "name": "vente",
           "target": "vente"
+        },
+        {
+          "pattern": "log",
+          "name": "log",
+          "target": "log"
         }
       
 
@@ -198,6 +203,10 @@
         "vente": {
           "viewId": "vente",
           "viewName": "Vente"
+        },
+        "log": {
+          "viewId": "log",
+          "viewName": "Log"
         }
       }
     },

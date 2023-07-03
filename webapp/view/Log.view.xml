@@ -1,0 +1,14 @@
+<mvc:View height="100%" controllerName="aymax.pfe.inventaire.controller.Log"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page id="messageHandlingPage" showHeader="false">
+		<MessageView id="_IDGenMessageView1" items="{message>/}">
+			<MessageItem id="_IDGenMessageItem1"
+				type="{message>type}"
+				title="{message>message}"
+				subtitle="{message>additionalText}"
+				description="{message>description}">
+			</MessageItem>
+		</MessageView>
+	</Page>
+</mvc:View>

@@ -150,7 +150,7 @@
 				smartFilterId="smartFilterBar" 
 				tableType="ResponsiveTable" 
 				editable="false"
-				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken,Meins"
+				initiallyVisibleFields="Bukrs,Anln1,Anln2,Anlkl,Txt50,Aktiv,Ord41,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
 				entitySet="ImmobilisationSet" 
 				useVariantManagement="false"
 				useTablePersonalisation="true" 
@@ -163,15 +163,21 @@
 				>
 				<Table id="_IDGenTable1">
 				<columns>
-         			<Column id="container-aymax.pfe.inventaire---consultation--smartTable_ResponsiveTable-Anln1">
+         			<!-- <Column id="column1">
               			<customData>
 	       			  		<core:CustomData key="p13nData" value='\{"columnKey": "Anln1", "leadingProperty": "Anln1", "columnIndex": 1}'/>
 						</customData>
-              				<Text id="container-aymax.pfe.inventaire---consultation--smartTable_ResponsiveTable-Anln1-header" text="{i18n>Immobilisation}"></Text>
+              				<Text id="TEXT" text="{i18n>Immobilisation}"></Text>
+            		</Column> -->
+					<Column id="StatutImmobilisation">
+              			<customData>
+	       			  		<core:CustomData key="p13nData" value='\{"columnKey": "Ord41", "leadingProperty": "Ord41", "columnIndex": 6}'/>
+						</customData>
+              				<Text id="textStatutImmo" text="Statut d’inventaire"></Text>
             		</Column>	
     			</columns>	
 				<items>
-          		   <ColumnListItem id="_IDGenColumnListItem1">
+          		   <!-- <ColumnListItem id="_IDGenColumnListItem1">
 	    				<ObjectIdentifier id="_IDGenObjectIdentifier1"
 							text="{path: 'Anln1' , formatter: '.formatter.Anln1Format'}"
 							textDirection="Inherit"
@@ -179,6 +185,16 @@
 							visible="true"
 						>
 						</ObjectIdentifier>
+					</ColumnListItem> -->
+					 <ColumnListItem id="_IDGenColumnListItem2">
+					 <ObjectStatus id='statut' text="{Ord41}" ></ObjectStatus>
+	    				<!-- <ObjectIdentifier id="_IDGenObjectIdentifier2"
+							text="{oModelMNA>Ord41}"
+							textDirection="Inherit"
+							titleActive="false"
+							visible="true"
+						>
+						</ObjectIdentifier> -->
 					</ColumnListItem>
 			    </items>
 				</Table>

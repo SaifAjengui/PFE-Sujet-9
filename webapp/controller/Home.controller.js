@@ -26,9 +26,17 @@ sap.ui.define([
 			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("modificationhome");
 		},
-		settings: function () {
+		miseaurebut: function () {
 			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("settings");
+			oRouter.navTo("miseaurebut");
+		},
+		vente: function () {
+			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("vente");
+		},
+		transfert: function () {
+			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("transfert");
 		},
 	});
 });

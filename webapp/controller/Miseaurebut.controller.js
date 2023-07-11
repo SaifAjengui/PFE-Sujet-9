@@ -16,7 +16,20 @@ sap.ui.define([
 	MessageBox
 ) {
 	"use strict";
-
+	var type;
+	var msg1;
+	var msg2;
+	var msg3;
+	var msg4;
+	let TimeStmp = new Date().getTime();
+	var contextHeaderToItem=
+				{
+					Extnumber  : "Miseaurebut",
+					Object     : "ZFLE",
+					Subobject  : "ZFLE001",
+					TimeStmp   : "\/Date("+TimeStmp+")\/",
+					HeaderToItem:[]
+				}
 	return BaseController.extend("aymax.pfe.inventaire.controller.Miseaurebut", {
 		formatter: formatter,
         onInit: function() {
@@ -56,6 +69,23 @@ sap.ui.define([
 		}
 	},
 
+	HeaderToItem: function(oEvent) {
+
+		contextHeaderToItem.HeaderToItem.push(
+			{
+			Msgty      : type, 
+			Msgv1      : msg1,
+			Msgv2      : msg2,
+			Msgv3      : msg3,
+			Msgv4      : msg4,
+			Object     : "ZFLE",
+			Subobject  : "ZFLE001",
+			TimeStmp   : "\/Date("+TimeStmp+")\/"
+			}
+		
+			)
+	},
+
 	uploadExcel: function(oEvent) {
 		var oModel = this.getOwnerComponent().getModel();
 		var data = this.getModel("localModel").getData().items;
@@ -64,6 +94,7 @@ sap.ui.define([
 		var xModel = new JSONModel({
 			messages: []
 		})
+		
 		this.getView().setModel(xModel, 'responseModel');
 		data.forEach(row => {
 			context ={
@@ -99,9 +130,84 @@ sap.ui.define([
 				 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 				 var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("log");
-			}.bind(this),
-			error: function(error){
+
+				for(var i = 0; i < xModel.oData.messages.length; i+=2){
+
+					type=xModel.oData.messages[i].substring(0,1);
+					msg1=xModel.oData.messages[i].substring(2,52);
+					msg2=xModel.oData.messages[i].substring(52,102);
+					msg3=xModel.oData.messages[i].substring(102,152);
+					msg4=xModel.oData.messages[i].substring(152,202);
+				}
+					this.HeaderToItem();
+					
+					console.log("type : ",type);
+					console.log("type : ",type.length);
+					console.log("msg1 : ",msg1);
+					console.log("msg2 : ",msg2);
+					console.log("msg3 : ",msg3);
+					console.log("msg4 : ",msg4);
+					console.log("contextHeaderToItem : ",contextHeaderToItem);
+					 
+					
 				
+
+					
+					oModel.create("/MessageHeaderSet", contextHeaderToItem, {
+						success: function(data, response){
+							sap.m.MessageToast.show("success"), {
+								duration: 3000
+							};
+							}.bind(this),
+							error: function(error,response){
+								sap.m.MessageToast.show("error"), {
+									duration: 3000
+								};
+						
+							}.bind(this)
+						});
+					
+					
+				
+
+			}.bind(this),
+			error: function(error,response){
+					
+				let entry = that.getView().getModel('responseModel').getData();
+				entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+				for(var i = 0; i < xModel.oData.messages.length; i+=2){
+
+				   type=xModel.oData.messages[i].substring(0,1);
+				   msg1=xModel.oData.messages[i].substring(2,52);
+				   msg2=xModel.oData.messages[i].substring(52,102);
+				   msg3=xModel.oData.messages[i].substring(102,152);
+				   msg4=xModel.oData.messages[i].substring(152,202);
+			   }
+			   this.HeaderToItem();
+
+				   console.log("type : ",type);
+				   console.log("type : ",type.length);
+				   console.log("msg1 : ",msg1);
+				   console.log("msg2 : ",msg2);
+				   console.log("msg3 : ",msg3);
+				   console.log("msg4 : ",msg4);
+				   console.log("contextHeaderToItem : ",contextHeaderToItem);
+			   
+				   
+				   oModel.create("/MessageHeaderSet", contextHeaderToItem, {
+					   success: function(data, response){
+						   sap.m.MessageToast.show("success"), {
+							   duration: 3000
+						   };
+						   }.bind(this),
+						   error: function(error,response){
+							   sap.m.MessageToast.show("error"), {
+								   duration: 3000
+							   };
+					   
+						   }.bind(this)
+					   });
+				   
 			}.bind(this)
 			
 		});

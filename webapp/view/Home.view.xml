@@ -13,10 +13,10 @@
 			<l:BlockLayoutRow id="_IDGenBlockLayoutRow2">
 				<l:BlockLayoutCell id="_IDGenBlockLayoutCell2" backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
 					<l:VerticalLayout id="_IDGenVerticalLayout1">
-						<core:Icon id="_IDGenIcon1" src="sap-icon://role" size="2.5rem" color="Default"/>
+						<core:Icon id="_IDGenIcon1" src="sap-icon://activity-2" size="2.5rem" color="Default"/>
 						<Title id="administrationTile" text="{i18n>administrationTitle}" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom"/>
 						<Text id="_IDGenText1" text="{i18n>administrationContent}" class="sapUiTinyMarginBottom"/>
-						<Link id="_IDGenLink1" text="{i18n>accessLink}" press="settings" />
+						<Link id="_IDGenLink1" text="{i18n>accessLink}" press="miseaurebut" />
 					</l:VerticalLayout>
 				</l:BlockLayoutCell>
 				<l:BlockLayoutCell id="_IDGenBlockLayoutCell3" backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
@@ -36,9 +36,28 @@
 					</l:VerticalLayout>
 				</l:BlockLayoutCell>
 				
+				
 			</l:BlockLayoutRow>
 			<l:BlockLayoutRow id="_IDGenBlockLayoutRow3">
-				
+
+			<l:BlockLayoutCell id="_IDGenBlockLayoutCell6" backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
+					<l:VerticalLayout id="_IDGenVerticalLayout6">
+						<core:Icon id="_IDGenIcon6" src="sap-icon://inventory" size="2.5rem" color="Default"/>
+						<Title id="productTile6" text="{i18n>ContentVente}" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom"/>
+						<Text id="_IDGenText6" text="{i18n>DetailTitleVente}" class="sapUiTinyMarginBottom"/>
+						<Link id="_IDGenLink7" text="{i18n>accessLink}"  press="vente"/>
+					</l:VerticalLayout>
+			</l:BlockLayoutCell>	
+			<l:BlockLayoutCell id="_IDGenBlockLayoutCell5" backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+					<l:VerticalLayout id="_IDGenVerticalLayout4">
+						<core:Icon id="_IDGenIcon4" src="sap-icon://action" size="2.5rem" color="Default"/>
+						<Title id="_IDGenTitle2" text="{i18n>ContentTransfert}" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom"/>
+						<Text id="_IDGenText4" text="{i18n>DetailTitleTransfert}" class="sapUiTinyMarginBottom"/>
+						<Link id="_IDGenLink6" text="{i18n>accessLink}" press="transfert" />
+					</l:VerticalLayout>
+			</l:BlockLayoutCell>
+			
+			
 			<!-- <l:BlockLayoutCell id="_IDGenBlockLayoutCell7" backgroundColorSet="ColorSet9" backgroundColorShade="ShadeA" width="3">
 					 <Table id="_IDGenTable1" items="{path:'customer>/customers', templateShareable: false}" fixedLayout="false">
 						<headerToolbar>

@@ -1,4 +1,4 @@
-<mvc:View controllerName="aymax.pfe.inventaire.controller.Modification" 
+<mvc:View xmlns:variants="sap.ui.comp.variants" controllerName="aymax.pfe.inventaire.controller.Modification" 
 	xmlns="sap.m"
 	xmlns:m="sap.m"
 	xmlns:custumData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
@@ -188,13 +188,48 @@
 				beforeRebindTable="onBeforeRebindTable"
 
 				>
+				<!--<Table id="_IDGenTable1">
+					
+					<columns>
+						<Column id="Fournisseur" hAlign="Begin">
+							<customData>
+								<core:CustomData key="p13nData" value='\{"columnKey": "Lifnr", "leadingProperty": "Lifnr", "columnIndex": 10}'/>
+							</customData>
+								<Text id="textFournisseur" text="Fournisseur"></Text>
+						</Column>	
+					</columns>	
+
+					<items>
+					<ColumnListItem id="_IDGenColumnListItem1" >
+							<m:MultiComboBox items="{oModelMNAFournisseur>/}" 
+									id="multiComboBoxFournisseurModif"
+									showSecondaryValues="true"
+									selectionChange="customFieldChange"
+									>
+								<core:ListItem id="_IDGenItemFournisseur"  text="{oModelMNAFournisseur>Lifnr}" 
+											   additionalText="{oModelMNAFournisseur>Lifnr}" 
+											   key="{oModelMNAFournisseur>Lifnr}" />
+									
+							</m:MultiComboBox>
+					</ColumnListItem>	
+					</items>
+
+				</Table>-->
+				
+
+
+				
 				<smartTable:customToolbar>
 				<OverflowToolbar id="_IDGenOverflowToolbar1" design="Transparent">
 				<ToolbarSpacer id="_IDGenToolbarSpacer1" />
 				<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" icon="sap-icon://save" press="MultiEdit" tooltip="save"/>
 				</OverflowToolbar>
-				</smartTable:customToolbar>
 
+				</smartTable:customToolbar>
+	
+
+	
+		
 			</smartTable:SmartTable>
 
 		</content>	

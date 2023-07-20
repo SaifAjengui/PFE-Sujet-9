@@ -11,6 +11,11 @@ sap.ui.define([
 		formatter: formatter,
  
 		onInit: function () {
+
+			
+
+		
+
 			this._oSmartFilterBar = this.byId("smartFilterBar");
 			this._oCustomMultiComboBox = this.byId("multiComboBoxSociete");
 			this._oCustomMultiComboBoxpays = this.byId("multiComboBoxPays");
@@ -240,6 +245,7 @@ sap.ui.define([
 		},
 
 		
+
 
 		onPress: function () {
 		

@@ -18,7 +18,7 @@
 						<Bar id="_IDGenBar1">
 							<contentLeft>
 							<Title id="loaded_assets_num" text="Immobilisations(0)"></Title>
-							 <Button id="buttondownload" icon="sap-icon://download" text="Télécharger Excel" press="download"/>
+							 <Button id="buttondownload" icon="sap-icon://download" text="Télécharger Excel" press="onDownTempPressed"/>
 							</contentLeft>
                             <contentRight>
                                  <Button id="button_save_loaded_data" icon="sap-icon://save" text="Enregistrer"

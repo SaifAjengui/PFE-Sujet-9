@@ -3,11 +3,15 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/routing/History",
+	'sap/ui/export/Spreadsheet',
+	'sap/ui/export/library',
 ], function(
 	BaseController,
 	JSONModel,
 	formatter,
-	History
+	History,
+	Spreadsheet,
+	exportLibrary
 ) {
 	"use strict";
 	var type;
@@ -24,6 +28,7 @@ sap.ui.define([
 					TimeStmp   : "\/Date("+TimeStmp+")\/",
 					HeaderToItem:[]
 				}
+	var EdmType = exportLibrary.EdmType;
 	return BaseController.extend("aymax.pfe.inventaire.controller.Vente", {
 		formatter: formatter,
         onInit: function() {
@@ -202,6 +207,91 @@ sap.ui.define([
 				}.bind(this)
 				
 			});
+			});
+			
+		},
+
+		createColumnConfig: function() {
+			var aCols = [];
+	
+			
+	
+			aCols.push({
+				property: 'Société',
+				type: EdmType.String
+			});
+	
+			aCols.push({
+				property: 'Immobilisation',
+				type: EdmType.String
+			});
+	
+			aCols.push({
+				property: 'Nº subsidiaire',
+				type: EdmType.String,
+				
+			});
+	
+			aCols.push({
+				property: "Tableau d'éval.",
+				type: EdmType.Number
+			});
+	
+	
+			aCols.push({
+				property: 'Date comptable',
+				type: EdmType.Date
+			});
+
+			aCols.push({
+				property: 'Date document',
+				type: EdmType.Date
+			});
+	
+			aCols.push({
+				property: 'Date de référ.',
+				type: EdmType.Date
+			});
+			
+			aCols.push({
+				property: 'Texte',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Produit cession',
+				type: EdmType.Number
+			});
+			
+			
+	
+			return aCols;
+		},
+		
+		onDownTempPressed: function (oEvent) {
+			var aCols, oRowBinding, oSettings, oSheet, oTable;
+	
+			if (!this._oTable) {
+				this._oTable = this.byId('Excel_data_table');
+			}
+	
+			oTable = this._oTable;
+			oRowBinding = oTable.getBinding('items');
+			aCols = this.createColumnConfig();
+	
+			oSettings = {
+				workbook: {
+					columns: aCols,
+					hierarchyLevel: 'Level'
+				},
+				dataSource: [],
+				fileName: 'Vente.xlsx',
+				worker: false // We need to disable worker because we are using a MockServer as OData Service
+			};
+	
+			oSheet = new Spreadsheet(oSettings);
+			oSheet.build().finally(function() {
+				oSheet.destroy();
 			});
 			
 		},

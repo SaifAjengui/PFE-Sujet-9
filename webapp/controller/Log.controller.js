@@ -35,38 +35,7 @@ sap.ui.define([
 					this._MessageManager.addMessages(
 						[
 							
-							new Message({
-								message: "Error message",
-								type: MessageType.Error,
-								additionalText: "Example of additionalText",
-								description: "Example of description",
-								target: "message",
-								processor: that.getView().getModel()
-							}),
-							new Message({
-								message: "Information message",
-								type: MessageType.Information,
-								additionalText: "Example of additionalText",
-								description: "Example of description",
-								target: "message",
-								processor: that.getView().getModel()
-							}),
-							new Message({
-								message: "Success message",
-								type: MessageType.Success,
-								additionalText: "Example of additionalText",
-								description: "Example of description",
-								target: "message",
-								processor: that.getView().getModel()
-							}),
-							new Message({
-								message: "Warning message",
-								type: MessageType.Warning,
-								additionalText: "Example of additionalText",
-								description: "Example of description",
-								target: "message",
-								processor: that.getView().getModel()
-							})
+							
 						]
 					);
 				}

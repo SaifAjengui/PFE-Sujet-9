@@ -161,6 +161,8 @@
 				enableAutoBinding="true"
 				beforeRebindTable="onBeforeRebindTable"
 				>
+					
+		
 				<Table id="_IDGenTable1">
 				<columns>
          			<!-- <Column id="column1">

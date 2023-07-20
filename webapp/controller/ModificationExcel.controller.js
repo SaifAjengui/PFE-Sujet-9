@@ -3,13 +3,15 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	'aymax/pfe/inventaire/model/formatter',
 	"sap/ui/core/routing/History",
-	// "sap/base/util/array",
+	'sap/ui/export/Spreadsheet',
+	'sap/ui/export/library',
 ], function(
 	BaseController,
 	JSONModel,
 	formatter,
-	History
-	// array,
+	History,
+	Spreadsheet,
+	exportLibrary
 ) {
 	"use strict";
 	var type;
@@ -26,6 +28,7 @@ sap.ui.define([
 					TimeStmp   : "\/Date("+TimeStmp+")\/",
 					HeaderToItem:[]
 				}
+	var EdmType = exportLibrary.EdmType;
 	return BaseController.extend("aymax.pfe.inventaire.controller.ModificationExcel", {
 		formatter: formatter,
         onInit: function() {
@@ -218,6 +221,135 @@ sap.ui.define([
 			});
 			
 		},
+
+		createColumnConfig: function() {
+			var aCols = [];
+	
+			
+	
+			aCols.push({
+				property: 'Société',
+				type: EdmType.String
+			});
+	
+			aCols.push({
+				property: 'Immobilisation',
+				type: EdmType.String
+			});
+	
+			aCols.push({
+				property: 'Nº subsidiaire',
+				type: EdmType.String,
+				
+			});
+	
+			aCols.push({
+				property: 'Désignation',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Désignation (2)',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Txte n° princ.immo.',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Quantité',
+				type: EdmType.Number,
+				
+			});
+
+			aCols.push({
+				property: 'UQ base',
+				type: EdmType.String
+			});
+	
+			aCols.push({
+				property: 'Fournisseur',
+				type: EdmType.String
+			});
+			
+	
+			aCols.push({
+				property: 'Date mise serv.',
+				type: EdmType.Date
+			});
+
+			aCols.push({
+				property: "Valeur d'orig.",
+				type: EdmType.Number,
+				
+			});
+
+			aCols.push({
+				property: 'Centre de coûts',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Division',
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Dom.activité',
+				type: EdmType.String
+			});
+			
+			aCols.push({
+				property: "N° d'inventaire",
+				type: EdmType.String
+			});
+
+			aCols.push({
+				property: 'Comment.invent.',
+				type: EdmType.String
+			});
+			
+			aCols.push({
+				property: 'Dern.inventaire',
+				type: EdmType.String
+			});
+
+			
+			
+	
+			return aCols;
+		},
+		
+		onDownTempPressed: function (oEvent) {
+			var aCols, oRowBinding, oSettings, oSheet, oTable;
+	
+			if (!this._oTable) {
+				this._oTable = this.byId('Excel_data_table');
+			}
+	
+			oTable = this._oTable;
+			oRowBinding = oTable.getBinding('items');
+			aCols = this.createColumnConfig();
+	
+			oSettings = {
+				workbook: {
+					columns: aCols,
+					hierarchyLevel: 'Level'
+				},
+				dataSource: [],
+				fileName: 'Modification Excel.xlsx',
+				worker: false // We need to disable worker because we are using a MockServer as OData Service
+			};
+	
+			oSheet = new Spreadsheet(oSettings);
+			oSheet.build().finally(function() {
+				oSheet.destroy();
+			});
+			
+		},
+
 		onNavBack: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();

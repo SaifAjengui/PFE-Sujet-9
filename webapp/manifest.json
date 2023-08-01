@@ -82,6 +82,10 @@
         "type": "sap.ui.model.json.JSONModel",
       "settings": {}
        },
+       "logModel": {
+        "type": "sap.ui.model.json.JSONModel",
+      "settings": {}
+       },
       "side": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/sideContent.json"

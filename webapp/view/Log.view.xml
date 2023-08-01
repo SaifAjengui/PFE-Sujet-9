@@ -2,12 +2,25 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<Page id="messageHandlingPage" showHeader="false">
-		<MessageView id="_IDGenMessageView1" items="{message>/}">
+		<MessageView id="_IDGenMessageView1" items="{
+			path: 'logModel>/',
+			length: 1000,
+
+			sorter: [
+				{
+					path: 'logModel>TimeStmp', 
+					descending: 'true'
+				}
+    		]
+		}"
+		>
 			<MessageItem id="_IDGenMessageItem1"
-				type="{message>type}"
-				title="{message>message}"
-				subtitle="{message>additionalText}"
-				description="{message>description}">
+				type="{
+					path: 'logModel>Msgty',
+					formatter: '.logMessageType.convert'
+				}"
+				title="{logModel>Msg}"
+				>
 			</MessageItem>
 		</MessageView>
 	</Page>

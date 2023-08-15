@@ -56,6 +56,14 @@
 						<Link id="_IDGenLink6" text="{i18n>accessLink}" press="transfert" />
 					</l:VerticalLayout>
 			</l:BlockLayoutCell>
+			<l:BlockLayoutCell id="_IDGenBlockLayoutCell7" backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
+					<l:VerticalLayout id="_IDGenVerticalLayout5">
+						<core:Icon id="_IDGenIcon5" src="sap-icon://incident" size="2.5rem" color="Default"/>
+						<Title id="_IDGenTitle3" text="{i18n>ContentLog}" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom"/>
+						<Text id="_IDGenText5" text="{i18n>DetailTitleLog}" class="sapUiTinyMarginBottom"/>
+						<Link id="_IDGenLink8" text="{i18n>accessLink}" press="log" />
+					</l:VerticalLayout>
+			</l:BlockLayoutCell>
 			
 			
 			<!-- <l:BlockLayoutCell id="_IDGenBlockLayoutCell7" backgroundColorSet="ColorSet9" backgroundColorShade="ShadeA" width="3">

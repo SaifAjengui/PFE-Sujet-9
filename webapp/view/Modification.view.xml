@@ -159,7 +159,7 @@
 				tableType="Table" 
 				editable="false"
 				initiallyVisibleFields="Bukrs,Anln1,Anln2,Txt50,Txa50,Anlhtxt,Menge,Meins,Ord41,Lifnr,Aktiv,Urwrt,Kostl,Werks,Gsber,Invnr,Invzu,Ivdat,Inken"
-				ignoredFields="Sansl,Aafav,Knafa,Peraf,Ndper,Ndjar,Afasl,Anlkl,Land1"
+				ignoredFields="Sansl,Aafav,Knafa,Peraf,Ndper,Ndjar,Afasl,Anlkl,Land1,ZVAL,ZAMORT,ANSWL"
 				entitySet="ImmobilisationSet"
 				useVariantManagement="false"
 				useTablePersonalisation="true" 

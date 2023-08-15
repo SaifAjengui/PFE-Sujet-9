@@ -92,6 +92,7 @@ sap.ui.define([
 	},
 
 	uploadExcel: function(oEvent) {
+		
 		var oModel = this.getOwnerComponent().getModel();
 		var data = this.getModel("localModel").getData().items;
 		var that = this;
@@ -111,8 +112,19 @@ sap.ui.define([
 				Budat: row["Date comptable"],
 				Bzdat: row["Date de référ."],
 				Sgtxt: row["Texte"],
+			
 				
 			}
+			/*context ={
+				Bukrs : "APAV",
+				Anln1: "223000000008",
+				Anln2: "0000",		
+				AfabePost: "",
+				Bldat: "2023-08-01T00:00:00",
+				Budat: "2023-08-01T00:00:00",
+				Bzdat: "2023-08-01T00:00:00",
+				Sgtxt: "test rebus excel"
+			}*/
 			if (context.Bldat){
 				context.Bldat = formatter.DateFormatExcel(context.Bldat)+"T00:00:00";
 			}
@@ -124,13 +136,15 @@ sap.ui.define([
 			}
 			
 			
-			oModel.update("/RebutSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
+
+			console.log(oModel)
+			
+			
+			oModel.create("/RebutSet", context, {
+			
 			success: function(data, response){
-				sap.m.MessageToast.show("Success"), {
-					 duration: 3000
-					 
-				 };
-				 let entry = that.getView().getModel('responseModel').getData();
+				
+			/*	 let entry = that.getView().getModel('responseModel').getData();
 				 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 				 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 				 var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
@@ -147,7 +161,6 @@ sap.ui.define([
 					this.HeaderToItem();
 					
 					console.log("type : ",type);
-					console.log("type : ",type.length);
 					console.log("msg1 : ",msg1);
 					console.log("msg2 : ",msg2);
 					console.log("msg3 : ",msg3);
@@ -160,26 +173,24 @@ sap.ui.define([
 					
 					oModel.create("/MessageHeaderSet", contextHeaderToItem, {
 						success: function(data, response){
-							sap.m.MessageToast.show("success"), {
-								duration: 3000
-							};
+							
 							}.bind(this),
 							error: function(error,response){
-								sap.m.MessageToast.show("error"), {
-									duration: 3000
-								};
+								
 						
 							}.bind(this)
 						});
 					
-					
-				
+					*/
+				sap.m.MessageToast.show("success"), {
+				duration: 3000
+				};	
 
 			}.bind(this),
 			error: function(error,response){
 					
-				let entry = that.getView().getModel('responseModel').getData();
-				entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+				/*let entry = that.getView().getModel('responseModel').getData();
+				//entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 				for(var i = 0; i < xModel.oData.messages.length; i+=2){
 
 				   type=xModel.oData.messages[i].substring(0,1);
@@ -191,7 +202,6 @@ sap.ui.define([
 			   this.HeaderToItem();
 
 				   console.log("type : ",type);
-				   console.log("type : ",type.length);
 				   console.log("msg1 : ",msg1);
 				   console.log("msg2 : ",msg2);
 				   console.log("msg3 : ",msg3);
@@ -201,18 +211,19 @@ sap.ui.define([
 				   
 				   oModel.create("/MessageHeaderSet", contextHeaderToItem, {
 					   success: function(data, response){
-						   sap.m.MessageToast.show("success"), {
-							   duration: 3000
-						   };
+						 
 						   }.bind(this),
 						   error: function(error,response){
-							   sap.m.MessageToast.show("error"), {
-								   duration: 3000
-							   };
+							  
 					   
 						   }.bind(this)
 					   });
 				   
+*/
+
+					   sap.m.MessageToast.show("error"), {
+						duration: 3000
+						};	
 			}.bind(this)
 			
 		});

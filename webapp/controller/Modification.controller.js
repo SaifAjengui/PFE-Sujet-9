@@ -405,10 +405,10 @@ sap.ui.define([
 			}
 			
 			
-			oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
+			oModel.create("/ImmobilisationSet", context, {
 
 				success: function(data, response){
-					 let entry = that.getView().getModel('responseModel').getData();
+					 /*let entry = that.getView().getModel('responseModel').getData();
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 					//  console.log(that.getView().getModel('responseModel').getData());
@@ -460,14 +460,16 @@ sap.ui.define([
 						
 							}.bind(this)
 						});
+					*/
 					
-					
-					
+					sap.m.MessageToast.show("success"), {
+						duration: 3000
+						};
 					
 				}.bind(this),
 				error: function(error,response){
 					
-					 let entry = that.getView().getModel('responseModel').getData();
+					/* let entry = that.getView().getModel('responseModel').getData();
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					 for(var i = 0; i < xModel.oData.messages.length; i+=2){
 
@@ -501,7 +503,10 @@ sap.ui.define([
 							
 								}.bind(this)
 							});
-						
+						*/
+						sap.m.MessageToast.show("error"), {
+							duration: 3000
+							};
 				}.bind(this)
 				
 			});

@@ -127,13 +127,10 @@ sap.ui.define([
 					context.Inken = formatter.CodeInventaire(context.Inken);
 				}
 				
-				oModel.update("/ImmobilisationSet(Bukrs=" + "'"+context.Bukrs +"'"+','+"Anln1='"+context.Anln1 +"'"+','+"Anln2='"+context.Anln2 +"'"+ ")", context, {
+				oModel.create("/ImmobilisationSet", context, {
 				success: function(data, response){
-					sap.m.MessageToast.show("Success"), {
-						 duration: 3000
-						 
-					 };
-					 let entry = that.getView().getModel('responseModel').getData();
+					
+					/* let entry = that.getView().getModel('responseModel').getData();
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 					 var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
@@ -150,7 +147,6 @@ sap.ui.define([
 						this.HeaderToItem();
 
 						console.log("type : ",type);
-						console.log("type : ",type.length);
 						console.log("msg1 : ",msg1);
 						console.log("msg2 : ",msg2);
 						console.log("msg3 : ",msg3);
@@ -162,26 +158,23 @@ sap.ui.define([
 						
 						oModel.create("/MessageHeaderSet", contextHeaderToItem, {
 							success: function(data, response){
-								sap.m.MessageToast.show("success"), {
-									duration: 3000
-								};
+								
 								}.bind(this),
 								error: function(error,response){
-									sap.m.MessageToast.show("error"), {
-										duration: 3000
-									};
-							
+									
 								}.bind(this)
 							});
 						
 						
-						
-
+					*/	
+							sap.m.MessageToast.show("success"), {
+								duration: 3000
+							};
 				}.bind(this),
 				error: function(error,response){
 						
-					let entry = that.getView().getModel('responseModel').getData();
-					entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
+				/*	let entry = that.getView().getModel('responseModel').getData();
+					//entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					for(var i = 0; i < xModel.oData.messages.length; i+=2){
 
 					   type=xModel.oData.messages[i].substring(0,1);
@@ -193,7 +186,6 @@ sap.ui.define([
 				   this.HeaderToItem();
 
 					   console.log("type : ",type);
-					   console.log("type : ",type.length);
 					   console.log("msg1 : ",msg1);
 					   console.log("msg2 : ",msg2);
 					   console.log("msg3 : ",msg3);
@@ -203,18 +195,19 @@ sap.ui.define([
 					   
 					   oModel.create("/MessageHeaderSet", contextHeaderToItem, {
 						   success: function(data, response){
-							   sap.m.MessageToast.show("success"), {
-								   duration: 3000
-							   };
+							   
 							   }.bind(this),
 							   error: function(error,response){
-								   sap.m.MessageToast.show("error"), {
-									   duration: 3000
-								   };
+								  
 						   
 							   }.bind(this)
 						   });
-					   
+
+						   */
+						  
+						sap.m.MessageToast.show("error"), {
+							duration: 3000
+						};
 				}.bind(this)
 				
 			});

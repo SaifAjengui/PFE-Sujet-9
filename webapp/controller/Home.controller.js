@@ -38,5 +38,9 @@ sap.ui.define([
 			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("transfert");
 		},
+		log: function () {
+			var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("log");
+		},
 	});
 });

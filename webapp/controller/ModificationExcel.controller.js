@@ -130,7 +130,7 @@ sap.ui.define([
 				oModel.create("/ImmobilisationSet", context, {
 				success: function(data, response){
 					
-					/* let entry = that.getView().getModel('responseModel').getData();
+					 let entry = that.getView().getModel('responseModel').getData();
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					 entry.messages.push(JSON.parse(response.headers['sap-message'])['severity'])
 					 var oRouter=sap.ui.core.UIComponent.getRouterFor(this);
@@ -138,8 +138,8 @@ sap.ui.define([
 
 					for(var i = 0; i < xModel.oData.messages.length; i+=2){
 
-						type=xModel.oData.messages[i].substring(0,1);
-						msg1=xModel.oData.messages[i].substring(2,52);
+						type=xModel.oData.messages[i].substring(11,12);
+						msg1=xModel.oData.messages[i].substring(12,52);
 						msg2=xModel.oData.messages[i].substring(52,102);
 						msg3=xModel.oData.messages[i].substring(102,152);
 						msg4=xModel.oData.messages[i].substring(152,202);
@@ -166,19 +166,19 @@ sap.ui.define([
 							});
 						
 						
-					*/	
+						
 							sap.m.MessageToast.show("success"), {
 								duration: 3000
 							};
 				}.bind(this),
 				error: function(error,response){
 						
-				/*	let entry = that.getView().getModel('responseModel').getData();
+					let entry = that.getView().getModel('responseModel').getData();
 					//entry.messages.push(JSON.parse(response.headers['sap-message'])['message'])
 					for(var i = 0; i < xModel.oData.messages.length; i+=2){
 
-					   type=xModel.oData.messages[i].substring(0,1);
-					   msg1=xModel.oData.messages[i].substring(2,52);
+						type=xModel.oData.messages[i].substring(11,12);
+						msg1=xModel.oData.messages[i].substring(12,52);
 					   msg2=xModel.oData.messages[i].substring(52,102);
 					   msg3=xModel.oData.messages[i].substring(102,152);
 					   msg4=xModel.oData.messages[i].substring(152,202);
@@ -203,7 +203,7 @@ sap.ui.define([
 							   }.bind(this)
 						   });
 
-						   */
+						   
 						  
 						sap.m.MessageToast.show("error"), {
 							duration: 3000

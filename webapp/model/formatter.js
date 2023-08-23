@@ -37,13 +37,33 @@ sap.ui.define([
 			var value = "0".repeat(4-Anln2.length) + Anln2.toString();
 			return value;
 		},
-		DateFormatExcel : function (Date){
-			if(Date){
-			var DateAr = Date.split("/");
-			var Day = "0".repeat(2-DateAr[1].length) + DateAr[1];
-			var Month = "0".repeat(2-DateAr[0].length) + DateAr[0];
-			var Year = "20" + DateAr[2];
-			return Year+"-"+Month+"-"+Day;
+		DateFormatExcel : function (inDate){
+			if(inDate){
+				var DateAr;
+				var Day;
+				var Month;
+				var Year;
+				if(inDate.includes("/")){
+					DateAr = inDate.split("/");
+					Day = "0".repeat(2-DateAr[1].length) + DateAr[1];
+					Month = "0".repeat(2-DateAr[0].length) + DateAr[0];
+					Year = "20" + DateAr[2];
+					return Year+"-"+Month+"-"+Day;
+				}
+				else if(inDate.includes("\.")){
+					DateAr = inDate.split("\.");
+					Day = "0".repeat(2-DateAr[1].length) + DateAr[1];
+					Month = "0".repeat(2-DateAr[0].length) + DateAr[0];
+					Year =  DateAr[2];
+					return Year+"-"+Day+"-"+Month;
+				}
+				/*else if(!isNaN(inDate)){
+					Day = "0".repeat(2-Math.floor(inDate / 1000000) % 10) + Math.floor(inDate / 1000000);
+					Month = "0".repeat(2-Math.floor((inDate % 1000000) / 10000) % 10) + Math.floor((inDate % 1000000) / 10000);
+					Year = inDate % 10000;
+					return Year+"-"+Month+"-"+Day;
+				}*/
+				
 			}
 		},
 		DateFormat: function(inDate){
@@ -74,7 +94,35 @@ sap.ui.define([
 			}
 			
 		},
+		DateFormatLog: function(inDate){
+			if (inDate){
+				var day;
+				var month;
+				var Year;
+				if(typeof inDate === 'string'){
+					
+					var DateAr = inDate.split("/");
+					day = "0".repeat(2-DateAr[0].length) + DateAr[0];
+					month = "0".repeat(2-DateAr[1].length) + DateAr[1];
+					Year =  DateAr[2];
 
+			}
+				else{
+					inDate = new Date(inDate);
+					month = (inDate.getMonth()+1);
+					day = (inDate.getDate());
+					Year = inDate.getFullYear();
+					month = month.toString();
+					month = "0".repeat(2- month.length)+month;
+					day = day.toString();
+					day = "0".repeat(2- day.length)+day;
+					Year = Year.toString();
+			}
+				
+				return day+"/"+month+"/"+Year;
+			}
+			
+		},
 		CodeInventaire: function (Code) {
 			if (Code==="Oui" || Code==="true"){
 				 return true;}

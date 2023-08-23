@@ -3,13 +3,19 @@ sap.ui.define([
 	'sap/ui/core/Core',
 	'sap/ui/core/message/Message',
 	'sap/ui/core/library',
-	'../model/logMessageType'
+	"sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+	'../model/logMessageType',
+	'aymax/pfe/inventaire/model/formatter',
 ], function(
 	BaseController,
 	Core,
 	Message,
 	coreLibrary,
-	logMessageType
+	Filter,
+	FilterOperator,
+	logMessageType,
+	formatter
 ) {
 		"use strict";
 		// shortcut for sap.ui.core.MessageType
@@ -18,6 +24,7 @@ sap.ui.define([
 		return BaseController.extend("aymax.pfe.inventaire.controller.Log", {
 
 			logMessageType: logMessageType,
+			formatter: formatter,
 			onInit: function () {
 			
 				// connect Message Manager
@@ -77,6 +84,24 @@ sap.ui.define([
 			
 
 			},
-			
+			onFilter : function (oEvent) {
+				// build filter array
+				var aFilter = [], sQuery = this.byId("leaveSince").getProperty("value"),
+				                  sQuery2 = this.byId("leaveSince2").getProperty("value"),
+				// retrieve list control
+				oList = this.getView().byId("_IDGenMessageView1"),
+				// get binding for aggregation 'items'
+				oBinding = oList.getBinding("items");
+				sQuery=formatter.DateFormatLog(sQuery);
+				sQuery2=formatter.DateFormatLog(sQuery2);
+				if (sQuery) {
+				aFilter.push(new Filter("Object", FilterOperator.BT, ":"+sQuery,":"+sQuery2));
+				}
+				
+				// apply filter. an empty filter array simply removes the filter
+				// which will make all entries visible again
+				oBinding.filter(aFilter);
+				
+				},
 		});
 	});

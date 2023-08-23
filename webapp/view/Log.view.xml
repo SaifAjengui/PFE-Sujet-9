@@ -2,6 +2,23 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 	<Page id="messageHandlingPage" showHeader="false">
+	
+       
+          
+            <Toolbar id="_IDGenToolbar1" >
+            <ToolbarSpacer id="_IDGenToolbarSpacer2" ></ToolbarSpacer>
+            <Label id="_IDGenLabel1" text="Date Début :" labelFor="DP1"/>
+           <DatePicker id="leaveSince" valueFormat="dd/MM/yyyy"  class="leaveSinceInput" width="30%"/>
+		    <Label id="_IDGenLabel2" text="Date Fin :" labelFor="DP1"/>
+           <DatePicker id="leaveSince2" valueFormat="dd/MM/yyyy"  class="leaveSinceInput" width="30%"/>
+		   <Button id="_IDGenButton1" text="Filtrer" type="Accept" class="sapUiSmallMarginBegin" press="onFilter"></Button>
+
+        
+                
+           
+            
+            </Toolbar>
+  
 		<MessageView id="_IDGenMessageView1" items="{
 			path: 'logModel>/',
 			length: 1000,

@@ -45,17 +45,23 @@ sap.ui.define([
 				var Year;
 				if(inDate.includes("/")){
 					DateAr = inDate.split("/");
-					Day = "0".repeat(2-DateAr[1].length) + DateAr[1];
-					Month = "0".repeat(2-DateAr[0].length) + DateAr[0];
-					Year = "20" + DateAr[2];
-					return Year+"-"+Month+"-"+Day;
+					Day = "0".repeat(2-DateAr[0].length) + DateAr[1];
+					Month = "0".repeat(2-DateAr[1].length) + DateAr[0];
+					Year = DateAr[2];
+					if(Year.length!=2){
+					return Year+"-"+Day+"-"+Month;
+					}else
+					return "20" + Year+"-"+Day+"-"+Month;
 				}
 				else if(inDate.includes("\.")){
 					DateAr = inDate.split("\.");
-					Day = "0".repeat(2-DateAr[1].length) + DateAr[1];
-					Month = "0".repeat(2-DateAr[0].length) + DateAr[0];
+					Day = "0".repeat(2-DateAr[0].length) + DateAr[1];
+					Month = "0".repeat(2-DateAr[1].length) + DateAr[0];
 					Year =  DateAr[2];
-					return Year+"-"+Day+"-"+Month;
+					if(Year.length!=2){
+						return Year+"-"+Month+"-"+Day;
+						}else
+						return "20" + Year+"-"+Day+"-"+Month;
 				}
 				/*else if(!isNaN(inDate)){
 					Day = "0".repeat(2-Math.floor(inDate / 1000000) % 10) + Math.floor(inDate / 1000000);
